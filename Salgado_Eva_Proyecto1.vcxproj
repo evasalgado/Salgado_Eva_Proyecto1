@@ -134,6 +134,7 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Contacto.h" />
     <ClInclude Include="CppCLR_Utils.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Contacto.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="Inicio_Sesion.cpp" />
