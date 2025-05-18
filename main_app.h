@@ -49,6 +49,7 @@ namespace Salgado_Eva_Proyecto1 {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::ListBox^ listBox1;
+	private: System::Windows::Forms::MenuStrip^ menuStrip2;
 
 
 	private:
@@ -73,8 +74,9 @@ namespace Salgado_Eva_Proyecto1 {
 			this->editarPerfilToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cerrarSesiónToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
+			this->menuStrip2 = (gcnew System::Windows::Forms::MenuStrip());
 			this->tb_chats->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
@@ -141,19 +143,19 @@ namespace Salgado_Eva_Proyecto1 {
 			// 
 			this->cuentaToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->editarPerfilToolStripMenuItem });
 			this->cuentaToolStripMenuItem->Name = L"cuentaToolStripMenuItem";
-			this->cuentaToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->cuentaToolStripMenuItem->Size = System::Drawing::Size(179, 26);
 			this->cuentaToolStripMenuItem->Text = L"Cuenta";
 			// 
 			// editarPerfilToolStripMenuItem
 			// 
 			this->editarPerfilToolStripMenuItem->Name = L"editarPerfilToolStripMenuItem";
-			this->editarPerfilToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->editarPerfilToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->editarPerfilToolStripMenuItem->Text = L"Editar perfil";
 			// 
 			// cerrarSesiónToolStripMenuItem
 			// 
 			this->cerrarSesiónToolStripMenuItem->Name = L"cerrarSesiónToolStripMenuItem";
-			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(179, 26);
 			this->cerrarSesiónToolStripMenuItem->Text = L"Cerrar Sesión";
 			// 
 			// panel1
@@ -162,19 +164,11 @@ namespace Salgado_Eva_Proyecto1 {
 				static_cast<System::Int32>(static_cast<System::Byte>(226)));
 			this->panel1->Controls->Add(this->textBox1);
 			this->panel1->Controls->Add(this->listBox1);
+			this->panel1->Controls->Add(this->menuStrip2);
 			this->panel1->Location = System::Drawing::Point(237, 39);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(678, 569);
 			this->panel1->TabIndex = 9;
-			// 
-			// listBox1
-			// 
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->ItemHeight = 16;
-			this->listBox1->Location = System::Drawing::Point(0, 0);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(674, 484);
-			this->listBox1->TabIndex = 10;
 			// 
 			// textBox1
 			// 
@@ -185,6 +179,24 @@ namespace Salgado_Eva_Proyecto1 {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(670, 22);
 			this->textBox1->TabIndex = 11;
+			// 
+			// listBox1
+			// 
+			this->listBox1->FormattingEnabled = true;
+			this->listBox1->ItemHeight = 16;
+			this->listBox1->Location = System::Drawing::Point(0, 32);
+			this->listBox1->Name = L"listBox1";
+			this->listBox1->Size = System::Drawing::Size(678, 452);
+			this->listBox1->TabIndex = 10;
+			// 
+			// menuStrip2
+			// 
+			this->menuStrip2->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip2->Location = System::Drawing::Point(0, 0);
+			this->menuStrip2->Name = L"menuStrip2";
+			this->menuStrip2->Size = System::Drawing::Size(678, 24);
+			this->menuStrip2->TabIndex = 12;
+			this->menuStrip2->Text = L"menuStrip2";
 			// 
 			// main_app
 			// 
@@ -198,6 +210,7 @@ namespace Salgado_Eva_Proyecto1 {
 			this->Controls->Add(this->menuStrip1);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"main_app";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"main_app";
 			this->Load += gcnew System::EventHandler(this, &main_app::main_app_Load);
 			this->tb_chats->ResumeLayout(false);
@@ -210,5 +223,9 @@ namespace Salgado_Eva_Proyecto1 {
 
 		}
 #pragma endregion
+private: System::Void main_app_Load(System::Object^ sender, System::EventArgs^ e) {
+
+}
+
 };
 }

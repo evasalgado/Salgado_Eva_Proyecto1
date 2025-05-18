@@ -5,6 +5,8 @@
 
 #include "Header1.h"
 #include "Header2.h"
+#include "Registro.h"
+#include "Inicio_Sesion.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -45,12 +47,14 @@ namespace CppCLRWinFormsProject {
       }
     }
   private: System::Windows::Forms::Panel^ panel1;
+  private: System::Windows::Forms::Button^ bt_iniciosesion;
   protected:
-  private: System::Windows::Forms::Button^ bt_comenzar;
+
   private: System::Windows::Forms::PictureBox^ pictureBox2;
   private: System::Windows::Forms::Label^ label15;
   private: System::Windows::Forms::Label^ label1;
-  private: System::Windows::Forms::Button^ button1;
+  private: System::Windows::Forms::Button^ bt_registrar;
+
 
 
 
@@ -72,11 +76,11 @@ namespace CppCLRWinFormsProject {
     void InitializeComponent(void)
     {
         this->panel1 = (gcnew System::Windows::Forms::Panel());
-        this->bt_comenzar = (gcnew System::Windows::Forms::Button());
+        this->bt_registrar = (gcnew System::Windows::Forms::Button());
+        this->bt_iniciosesion = (gcnew System::Windows::Forms::Button());
         this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
         this->label15 = (gcnew System::Windows::Forms::Label());
         this->label1 = (gcnew System::Windows::Forms::Label());
-        this->button1 = (gcnew System::Windows::Forms::Button());
         this->panel1->SuspendLayout();
         (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
         this->SuspendLayout();
@@ -85,8 +89,8 @@ namespace CppCLRWinFormsProject {
         // 
         this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(151)), static_cast<System::Int32>(static_cast<System::Byte>(203)),
             static_cast<System::Int32>(static_cast<System::Byte>(54)));
-        this->panel1->Controls->Add(this->button1);
-        this->panel1->Controls->Add(this->bt_comenzar);
+        this->panel1->Controls->Add(this->bt_registrar);
+        this->panel1->Controls->Add(this->bt_iniciosesion);
         this->panel1->Controls->Add(this->pictureBox2);
         this->panel1->Controls->Add(this->label15);
         this->panel1->Controls->Add(this->label1);
@@ -96,15 +100,25 @@ namespace CppCLRWinFormsProject {
         this->panel1->Size = System::Drawing::Size(1083, 711);
         this->panel1->TabIndex = 2;
         // 
-        // bt_comenzar
+        // bt_registrar
         // 
-        this->bt_comenzar->Location = System::Drawing::Point(403, 512);
-        this->bt_comenzar->Name = L"bt_comenzar";
-        this->bt_comenzar->Size = System::Drawing::Size(210, 77);
-        this->bt_comenzar->TabIndex = 6;
-        this->bt_comenzar->Text = L"Inisio Sesion";
-        this->bt_comenzar->UseVisualStyleBackColor = true;
-        this->bt_comenzar->Click += gcnew System::EventHandler(this, &Form1::bt_comenzar_Click);
+        this->bt_registrar->Location = System::Drawing::Point(403, 604);
+        this->bt_registrar->Name = L"bt_registrar";
+        this->bt_registrar->Size = System::Drawing::Size(210, 77);
+        this->bt_registrar->TabIndex = 7;
+        this->bt_registrar->Text = L"Registrarse";
+        this->bt_registrar->UseVisualStyleBackColor = true;
+        this->bt_registrar->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
+        // 
+        // bt_iniciosesion
+        // 
+        this->bt_iniciosesion->Location = System::Drawing::Point(403, 512);
+        this->bt_iniciosesion->Name = L"bt_iniciosesion";
+        this->bt_iniciosesion->Size = System::Drawing::Size(210, 77);
+        this->bt_iniciosesion->TabIndex = 6;
+        this->bt_iniciosesion->Text = L"Iniciar Sesión";
+        this->bt_iniciosesion->UseVisualStyleBackColor = true;
+        this->bt_iniciosesion->Click += gcnew System::EventHandler(this, &Form1::bt_comenzar_Click);
         // 
         // pictureBox2
         // 
@@ -139,15 +153,6 @@ namespace CppCLRWinFormsProject {
         this->label1->Text = L"Bienvenido\r\n a \r\nAmphy-chat";
         this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
         // 
-        // button1
-        // 
-        this->button1->Location = System::Drawing::Point(403, 604);
-        this->button1->Name = L"button1";
-        this->button1->Size = System::Drawing::Size(210, 77);
-        this->button1->TabIndex = 7;
-        this->button1->Text = L"Registrarse";
-        this->button1->UseVisualStyleBackColor = true;
-        // 
         // Form1
         // 
         this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -156,6 +161,7 @@ namespace CppCLRWinFormsProject {
         this->Controls->Add(this->panel1);
         this->Margin = System::Windows::Forms::Padding(4);
         this->Name = L"Form1";
+        this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
         this->Text = L"Amphy chat";
         this->panel1->ResumeLayout(false);
         this->panel1->PerformLayout();
@@ -170,7 +176,14 @@ namespace CppCLRWinFormsProject {
 
 
   private: System::Void bt_comenzar_Click(System::Object^ sender, System::EventArgs^ e) {
+      (gcnew Salgado_Eva_Proyecto1::Registro())->Hide();
+      (gcnew Salgado_Eva_Proyecto1::Inicio_Sesion())->Show();
+
   }
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+    (gcnew Salgado_Eva_Proyecto1::Inicio_Sesion())->Hide();
+    (gcnew Salgado_Eva_Proyecto1::Registro())->Show();
+}
 }; // end of class Form1
 } // end of namespace CppCLRWinFormsProject
 

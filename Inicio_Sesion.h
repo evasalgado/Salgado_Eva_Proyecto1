@@ -155,11 +155,15 @@ namespace Salgado_Eva_Proyecto1 {
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label2);
 			this->Name = L"Inicio_Sesion";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Inicio_Sesion";
+			this->Load += gcnew System::EventHandler(this, &Inicio_Sesion::Inicio_Sesion_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+	private: System::Void Inicio_Sesion_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }
