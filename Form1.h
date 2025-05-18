@@ -44,10 +44,17 @@ namespace CppCLRWinFormsProject {
         delete components;
       }
     }
-  private: System::Windows::Forms::TextBox^ out_textBox;
-  private: System::Windows::Forms::TextBox^ in_textBox;
-  private: System::Windows::Forms::Button^ button_plus_1;
-  private: System::Windows::Forms::Button^ button_plus_2;
+  private: System::Windows::Forms::Panel^ panel1;
+  protected:
+  private: System::Windows::Forms::Button^ bt_comenzar;
+  private: System::Windows::Forms::PictureBox^ pictureBox2;
+  private: System::Windows::Forms::Label^ label15;
+  private: System::Windows::Forms::Label^ label1;
+  private: System::Windows::Forms::Button^ button1;
+
+
+
+
 
   protected:
 
@@ -64,66 +71,96 @@ namespace CppCLRWinFormsProject {
     /// </summary>
     void InitializeComponent(void)
     {
-      this->out_textBox = (gcnew System::Windows::Forms::TextBox());
-      this->in_textBox = (gcnew System::Windows::Forms::TextBox());
-      this->button_plus_1 = (gcnew System::Windows::Forms::Button());
-      this->button_plus_2 = (gcnew System::Windows::Forms::Button());
-      this->SuspendLayout();
-      // 
-      // out_textBox
-      // 
-      this->out_textBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-        | System::Windows::Forms::AnchorStyles::Left)
-        | System::Windows::Forms::AnchorStyles::Right));
-      this->out_textBox->Location = System::Drawing::Point(12, 38);
-      this->out_textBox->Multiline = true;
-      this->out_textBox->Name = L"out_textBox";
-      this->out_textBox->Size = System::Drawing::Size(140, 211);
-      this->out_textBox->TabIndex = 0;
-      // 
-      // in_textBox
-      // 
-      this->in_textBox->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-      this->in_textBox->Location = System::Drawing::Point(172, 38);
-      this->in_textBox->Name = L"in_textBox";
-      this->in_textBox->Size = System::Drawing::Size(100, 20);
-      this->in_textBox->TabIndex = 1;
-      // 
-      // button_plus_1
-      // 
-      this->button_plus_1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-      this->button_plus_1->Location = System::Drawing::Point(172, 68);
-      this->button_plus_1->Name = L"button_plus_1";
-      this->button_plus_1->Size = System::Drawing::Size(75, 23);
-      this->button_plus_1->TabIndex = 2;
-      this->button_plus_1->Text = L"plus 1";
-      this->button_plus_1->UseVisualStyleBackColor = true;
-      this->button_plus_1->Click += gcnew System::EventHandler(this, &Form1::button_plus_1_Click);
-      // 
-      // button_plus_2
-      // 
-      this->button_plus_2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-      this->button_plus_2->Location = System::Drawing::Point(172, 97);
-      this->button_plus_2->Name = L"button_plus_2";
-      this->button_plus_2->Size = System::Drawing::Size(75, 23);
-      this->button_plus_2->TabIndex = 3;
-      this->button_plus_2->Text = L"plus 2";
-      this->button_plus_2->UseVisualStyleBackColor = true;
-      this->button_plus_2->Click += gcnew System::EventHandler(this, &Form1::button_plus_2_Click);
-      // 
-      // Form1
-      // 
-      this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-      this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-      this->ClientSize = System::Drawing::Size(284, 261);
-      this->Controls->Add(this->button_plus_2);
-      this->Controls->Add(this->button_plus_1);
-      this->Controls->Add(this->in_textBox);
-      this->Controls->Add(this->out_textBox);
-      this->Name = L"Form1";
-      this->Text = L"Form1";
-      this->ResumeLayout(false);
-      this->PerformLayout();
+        this->panel1 = (gcnew System::Windows::Forms::Panel());
+        this->bt_comenzar = (gcnew System::Windows::Forms::Button());
+        this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+        this->label15 = (gcnew System::Windows::Forms::Label());
+        this->label1 = (gcnew System::Windows::Forms::Label());
+        this->button1 = (gcnew System::Windows::Forms::Button());
+        this->panel1->SuspendLayout();
+        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+        this->SuspendLayout();
+        // 
+        // panel1
+        // 
+        this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(151)), static_cast<System::Int32>(static_cast<System::Byte>(203)),
+            static_cast<System::Int32>(static_cast<System::Byte>(54)));
+        this->panel1->Controls->Add(this->button1);
+        this->panel1->Controls->Add(this->bt_comenzar);
+        this->panel1->Controls->Add(this->pictureBox2);
+        this->panel1->Controls->Add(this->label15);
+        this->panel1->Controls->Add(this->label1);
+        this->panel1->Dock = System::Windows::Forms::DockStyle::Left;
+        this->panel1->Location = System::Drawing::Point(0, 0);
+        this->panel1->Name = L"panel1";
+        this->panel1->Size = System::Drawing::Size(1083, 711);
+        this->panel1->TabIndex = 2;
+        // 
+        // bt_comenzar
+        // 
+        this->bt_comenzar->Location = System::Drawing::Point(403, 512);
+        this->bt_comenzar->Name = L"bt_comenzar";
+        this->bt_comenzar->Size = System::Drawing::Size(210, 77);
+        this->bt_comenzar->TabIndex = 6;
+        this->bt_comenzar->Text = L"Inisio Sesion";
+        this->bt_comenzar->UseVisualStyleBackColor = true;
+        this->bt_comenzar->Click += gcnew System::EventHandler(this, &Form1::bt_comenzar_Click);
+        // 
+        // pictureBox2
+        // 
+        this->pictureBox2->Location = System::Drawing::Point(448, 394);
+        this->pictureBox2->Name = L"pictureBox2";
+        this->pictureBox2->Size = System::Drawing::Size(114, 112);
+        this->pictureBox2->TabIndex = 5;
+        this->pictureBox2->TabStop = false;
+        // 
+        // label15
+        // 
+        this->label15->AutoSize = true;
+        this->label15->Font = (gcnew System::Drawing::Font(L"Impact", 13.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+        this->label15->ForeColor = System::Drawing::SystemColors::ButtonFace;
+        this->label15->Location = System::Drawing::Point(388, 307);
+        this->label15->Name = L"label15";
+        this->label15->Size = System::Drawing::Size(246, 56);
+        this->label15->TabIndex = 4;
+        this->label15->Text = L"Su aplicación de chat \r\ncon temática de anfibios\r\n";
+        // 
+        // label1
+        // 
+        this->label1->AutoSize = true;
+        this->label1->Font = (gcnew System::Drawing::Font(L"Noto Sans HK", 28.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            static_cast<System::Byte>(0)));
+        this->label1->ForeColor = System::Drawing::SystemColors::Info;
+        this->label1->Location = System::Drawing::Point(354, 56);
+        this->label1->Name = L"label1";
+        this->label1->Size = System::Drawing::Size(310, 207);
+        this->label1->TabIndex = 3;
+        this->label1->Text = L"Bienvenido\r\n a \r\nAmphy-chat";
+        this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+        // 
+        // button1
+        // 
+        this->button1->Location = System::Drawing::Point(403, 604);
+        this->button1->Name = L"button1";
+        this->button1->Size = System::Drawing::Size(210, 77);
+        this->button1->TabIndex = 7;
+        this->button1->Text = L"Registrarse";
+        this->button1->UseVisualStyleBackColor = true;
+        // 
+        // Form1
+        // 
+        this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+        this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+        this->ClientSize = System::Drawing::Size(1068, 711);
+        this->Controls->Add(this->panel1);
+        this->Margin = System::Windows::Forms::Padding(4);
+        this->Name = L"Form1";
+        this->Text = L"Amphy chat";
+        this->panel1->ResumeLayout(false);
+        this->panel1->PerformLayout();
+        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+        this->ResumeLayout(false);
 
     }
 #pragma endregion
@@ -131,19 +168,9 @@ namespace CppCLRWinFormsProject {
    // You can call the functions at a button click. If you prefer, 
     // you can call them by clicking a menu item.
 
-  private: System::Void button_plus_1_Click(System::Object^ sender, System::EventArgs^ e)
-  {
-    int n = Convert::ToInt32(in_textBox->Text);
-    int result = N_header_1::plus_1(n);
-    out_textBox->AppendText(String::Format("plus_1({0})={1}\r\n", n, result));
+
+  private: System::Void bt_comenzar_Click(System::Object^ sender, System::EventArgs^ e) {
   }
-
-  private: System::Void button_plus_2_Click(System::Object^ sender, System::EventArgs^ e)
-  {
-    N_header_2::plus_2_Click(in_textBox, out_textBox);
-  }
-
-
-  }; // end of class Form1
+}; // end of class Form1
 } // end of namespace CppCLRWinFormsProject
 
