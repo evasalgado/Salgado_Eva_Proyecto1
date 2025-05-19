@@ -32,13 +32,14 @@ namespace Salgado_Eva_Proyecto1 {
 			string linea;
 			while (getline(usuarios, linea)) {
 				System::String^ users = gcnew System::String(linea.c_str());
-				lb_open->Items->Add(users);
+				lv_open->Items->Add(users);
 				size_t sep = linea.find(';');
 				if (sep != string::npos) {
 					string nombre = linea.substr(0, sep);
 					string rutaAvatar = linea.substr(sep + 1);
 					System::String^ usuario = gcnew System::String(nombre.c_str());
-					lb_open->Items->Add(usuario);
+					lv_open->Items->Add(usuario);
+					cargarContactosEnListView(lv_open);
 
 					if (usuario == userRn) { 
 						System::String^ rutaImg = gcnew System::String(rutaAvatar.c_str());
@@ -86,8 +87,8 @@ namespace Salgado_Eva_Proyecto1 {
 
 
 	private: System::Windows::Forms::Button^ bt_enviar;
-	private: System::Windows::Forms::ListBox^ lb_open;
-	private: System::Windows::Forms::ListBox^ lb_closed;
+
+
 
 
 
@@ -112,7 +113,7 @@ namespace Salgado_Eva_Proyecto1 {
 
 	private: System::Windows::Forms::ToolStripMenuItem^ agregarToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ cuentaToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ editarPerfilToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ chatsToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ordenarAlfabéticamenteToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ historialDeChatsToolStripMenuItem;
@@ -125,6 +126,11 @@ namespace Salgado_Eva_Proyecto1 {
 	private: System::Windows::Forms::ListView^ lv_stickerMultimedia;
 	private: System::Windows::Forms::ListBox^ lb_mensajes;
 	private: System::Windows::Forms::OpenFileDialog^ opF_imagen;
+private: System::Windows::Forms::ListView^ lv_open;
+private: System::Windows::Forms::ToolStripMenuItem^ ordenarAlfabéticamenteToolStripMenuItem1;
+private: System::Windows::Forms::ToolStripMenuItem^ ordenarPorRecientesToolStripMenuItem;
+private: System::Windows::Forms::ListView^ lv_closed;
+private: System::Windows::Forms::ImageList^ imgL_avatar;
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -147,9 +153,9 @@ namespace Salgado_Eva_Proyecto1 {
 			this->components = (gcnew System::ComponentModel::Container());
 			this->tb_chats = (gcnew System::Windows::Forms::TabControl());
 			this->tb_open = (gcnew System::Windows::Forms::TabPage());
-			this->lb_open = (gcnew System::Windows::Forms::ListBox());
+			this->lv_open = (gcnew System::Windows::Forms::ListView());
 			this->tb_Closed = (gcnew System::Windows::Forms::TabPage());
-			this->lb_closed = (gcnew System::Windows::Forms::ListBox());
+			this->lv_closed = (gcnew System::Windows::Forms::ListView());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->lv_stickerMultimedia = (gcnew System::Windows::Forms::ListView());
 			this->imgL_imagenes = (gcnew System::Windows::Forms::ImageList(this->components));
@@ -166,9 +172,10 @@ namespace Salgado_Eva_Proyecto1 {
 			this->pb_sticker1 = (gcnew System::Windows::Forms::PictureBox());
 			this->tsm_ajustes = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cuentaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->editarPerfilToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->chatsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ordenarAlfabéticamenteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ordenarAlfabéticamenteToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ordenarPorRecientesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->historialDeChatsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->acercaDeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -176,6 +183,7 @@ namespace Salgado_Eva_Proyecto1 {
 			this->cerrarSesiónToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->opF_imagen = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->imgL_avatar = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->tb_chats->SuspendLayout();
 			this->tb_open->SuspendLayout();
 			this->tb_Closed->SuspendLayout();
@@ -205,7 +213,7 @@ namespace Salgado_Eva_Proyecto1 {
 			// tb_open
 			// 
 			this->tb_open->BackColor = System::Drawing::Color::LightBlue;
-			this->tb_open->Controls->Add(this->lb_open);
+			this->tb_open->Controls->Add(this->lv_open);
 			this->tb_open->Font = (gcnew System::Drawing::Font(L"Lucida Console", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tb_open->Location = System::Drawing::Point(4, 30);
@@ -216,24 +224,20 @@ namespace Salgado_Eva_Proyecto1 {
 			this->tb_open->Text = L"Open";
 			this->tb_open->Click += gcnew System::EventHandler(this, &main_app::tb_open_Click);
 			// 
-			// lb_open
+			// lv_open
 			// 
-			this->lb_open->BackColor = System::Drawing::Color::Azure;
-			this->lb_open->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lb_open->ForeColor = System::Drawing::Color::DarkGreen;
-			this->lb_open->FormattingEnabled = true;
-			this->lb_open->ItemHeight = 41;
-			this->lb_open->Location = System::Drawing::Point(3, 6);
-			this->lb_open->Name = L"lb_open";
-			this->lb_open->Size = System::Drawing::Size(189, 537);
-			this->lb_open->TabIndex = 0;
-			this->lb_open->SelectedIndexChanged += gcnew System::EventHandler(this, &main_app::listBox1_SelectedIndexChanged);
+			this->lv_open->BackColor = System::Drawing::Color::Azure;
+			this->lv_open->HideSelection = false;
+			this->lv_open->Location = System::Drawing::Point(0, 0);
+			this->lv_open->Name = L"lv_open";
+			this->lv_open->Size = System::Drawing::Size(196, 569);
+			this->lv_open->TabIndex = 0;
+			this->lv_open->UseCompatibleStateImageBehavior = false;
 			// 
 			// tb_Closed
 			// 
 			this->tb_Closed->BackColor = System::Drawing::Color::LightBlue;
-			this->tb_Closed->Controls->Add(this->lb_closed);
+			this->tb_Closed->Controls->Add(this->lv_closed);
 			this->tb_Closed->Font = (gcnew System::Drawing::Font(L"Lucida Console", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tb_Closed->ForeColor = System::Drawing::SystemColors::ActiveCaption;
@@ -244,19 +248,15 @@ namespace Salgado_Eva_Proyecto1 {
 			this->tb_Closed->TabIndex = 1;
 			this->tb_Closed->Text = L"Closed";
 			// 
-			// lb_closed
+			// lv_closed
 			// 
-			this->lb_closed->BackColor = System::Drawing::Color::Azure;
-			this->lb_closed->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lb_closed->ForeColor = System::Drawing::Color::DarkGreen;
-			this->lb_closed->FormattingEnabled = true;
-			this->lb_closed->ItemHeight = 41;
-			this->lb_closed->Location = System::Drawing::Point(4, 4);
-			this->lb_closed->Name = L"lb_closed";
-			this->lb_closed->Size = System::Drawing::Size(185, 537);
-			this->lb_closed->TabIndex = 0;
-			this->lb_closed->SelectedIndexChanged += gcnew System::EventHandler(this, &main_app::lb_closed_SelectedIndexChanged);
+			this->lv_closed->BackColor = System::Drawing::Color::Azure;
+			this->lv_closed->HideSelection = false;
+			this->lv_closed->Location = System::Drawing::Point(0, 0);
+			this->lv_closed->Name = L"lv_closed";
+			this->lv_closed->Size = System::Drawing::Size(192, 569);
+			this->lv_closed->TabIndex = 0;
+			this->lv_closed->UseCompatibleStateImageBehavior = false;
 			// 
 			// panel1
 			// 
@@ -341,6 +341,7 @@ namespace Salgado_Eva_Proyecto1 {
 			this->lb_mensajes->Name = L"lb_mensajes";
 			this->lb_mensajes->Size = System::Drawing::Size(330, 400);
 			this->lb_mensajes->TabIndex = 10;
+			this->lb_mensajes->SelectedIndexChanged += gcnew System::EventHandler(this, &main_app::lb_mensajes_SelectedIndexChanged);
 			// 
 			// panel2
 			// 
@@ -417,19 +418,10 @@ namespace Salgado_Eva_Proyecto1 {
 			// 
 			// cuentaToolStripMenuItem
 			// 
-			this->cuentaToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->editarPerfilToolStripMenuItem,
-					this->chatsToolStripMenuItem
-			});
+			this->cuentaToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->chatsToolStripMenuItem });
 			this->cuentaToolStripMenuItem->Name = L"cuentaToolStripMenuItem";
 			this->cuentaToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->cuentaToolStripMenuItem->Text = L"Cuenta";
-			// 
-			// editarPerfilToolStripMenuItem
-			// 
-			this->editarPerfilToolStripMenuItem->Name = L"editarPerfilToolStripMenuItem";
-			this->editarPerfilToolStripMenuItem->Size = System::Drawing::Size(170, 26);
-			this->editarPerfilToolStripMenuItem->Text = L"Editar perfil";
 			// 
 			// chatsToolStripMenuItem
 			// 
@@ -438,19 +430,37 @@ namespace Salgado_Eva_Proyecto1 {
 					this->historialDeChatsToolStripMenuItem
 			});
 			this->chatsToolStripMenuItem->Name = L"chatsToolStripMenuItem";
-			this->chatsToolStripMenuItem->Size = System::Drawing::Size(170, 26);
+			this->chatsToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->chatsToolStripMenuItem->Text = L"Chats";
 			// 
 			// ordenarAlfabéticamenteToolStripMenuItem
 			// 
+			this->ordenarAlfabéticamenteToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->ordenarAlfabéticamenteToolStripMenuItem1,
+					this->ordenarPorRecientesToolStripMenuItem
+			});
 			this->ordenarAlfabéticamenteToolStripMenuItem->Name = L"ordenarAlfabéticamenteToolStripMenuItem";
-			this->ordenarAlfabéticamenteToolStripMenuItem->Size = System::Drawing::Size(260, 26);
-			this->ordenarAlfabéticamenteToolStripMenuItem->Text = L"Ordenar Alfabéticamente";
+			this->ordenarAlfabéticamenteToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->ordenarAlfabéticamenteToolStripMenuItem->Text = L"Orden";
+			this->ordenarAlfabéticamenteToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::ordenarAlfabéticamenteToolStripMenuItem_Click);
+			// 
+			// ordenarAlfabéticamenteToolStripMenuItem1
+			// 
+			this->ordenarAlfabéticamenteToolStripMenuItem1->Name = L"ordenarAlfabéticamenteToolStripMenuItem1";
+			this->ordenarAlfabéticamenteToolStripMenuItem1->Size = System::Drawing::Size(260, 26);
+			this->ordenarAlfabéticamenteToolStripMenuItem1->Text = L"Ordenar Alfabéticamente";
+			// 
+			// ordenarPorRecientesToolStripMenuItem
+			// 
+			this->ordenarPorRecientesToolStripMenuItem->Name = L"ordenarPorRecientesToolStripMenuItem";
+			this->ordenarPorRecientesToolStripMenuItem->Size = System::Drawing::Size(260, 26);
+			this->ordenarPorRecientesToolStripMenuItem->Text = L"Ordenar por Recientes";
+			this->ordenarPorRecientesToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::ordenarPorRecientesToolStripMenuItem_Click);
 			// 
 			// historialDeChatsToolStripMenuItem
 			// 
 			this->historialDeChatsToolStripMenuItem->Name = L"historialDeChatsToolStripMenuItem";
-			this->historialDeChatsToolStripMenuItem->Size = System::Drawing::Size(260, 26);
+			this->historialDeChatsToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->historialDeChatsToolStripMenuItem->Text = L"Historial de chats";
 			this->historialDeChatsToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::historialDeChatsToolStripMenuItem_Click);
 			// 
@@ -495,6 +505,12 @@ namespace Salgado_Eva_Proyecto1 {
 			// 
 			this->opF_imagen->FileName = L"openFileDialog1";
 			// 
+			// imgL_avatar
+			// 
+			this->imgL_avatar->ColorDepth = System::Windows::Forms::ColorDepth::Depth8Bit;
+			this->imgL_avatar->ImageSize = System::Drawing::Size(16, 16);
+			this->imgL_avatar->TransparentColor = System::Drawing::Color::Transparent;
+			// 
 			// main_app
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -530,6 +546,44 @@ namespace Salgado_Eva_Proyecto1 {
 
 		}
 #pragma endregion
+		void cargarContactosEnListView(System::Windows::Forms::ListView^ lv) {
+			imgL_avatar->ImageSize = System::Drawing::Size(32, 32);
+			imgL_avatar->Images->Clear();
+			lv_open->Items->Clear();
+
+			fstream archivo("contactos.amp", ios::in);
+			if (!archivo.is_open()) {
+				MessageBox::Show("No se pudo abrir el archivo de contactos.");
+				return;
+			}
+
+			while (!archivo.eof()) {
+				Contacto c;
+				c.CargarContacto(archivo);
+
+				if (archivo.eof()) break; 
+
+				String^ nombre = gcnew String(c.getNombre_User().c_str());
+				String^ estado = "Conectado"; 
+				String^ rutaImagen = gcnew String(c.getImagen().c_str());
+
+				try {
+					Image^ img = Image::FromFile(rutaImagen);
+					imgL_avatar->Images->Add(nombre, img);
+
+					ListViewItem^ item = gcnew ListViewItem(nombre, nombre);
+					item->SubItems->Add(estado);
+					lv_open->Items->Add(item);
+				}
+				catch (...) {
+					ListViewItem^ item = gcnew ListViewItem(nombre);
+					item->SubItems->Add(estado);
+					lv_open->Items->Add(item);
+				}
+			}
+
+			archivo.close();
+		}
 		string sacarTexto(System::Windows::Forms::TextBox^ tb) {
 			System::String^ textBox = tb->Text;
 			string contenidoSTD;
@@ -562,7 +616,7 @@ namespace Salgado_Eva_Proyecto1 {
 			}
 		}
 private: System::Void main_app_Load(System::Object^ sender, System::EventArgs^ e) {
-
+	cargarContactosEnListView(lv_open);
 }
 
 private: System::Void cerrarSesiónToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -576,7 +630,7 @@ private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, Syst
 	string user1_std;//string para identificar el usuario que inició sesión
 	getline(archivo, user1_std);
 
-	System::String^ user = lb_open->SelectedItem->ToString();
+	System::String^ user = lv_open->SelectedItems->ToString();
 	tb_mensaje->Text = user + ": ";
 }
 private: System::Void lb_closed_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -596,7 +650,7 @@ private: System::Void bt_enviar_Click(System::Object^ sender, System::EventArgs^
 	string user1_std;//string para identificar el usuario que inició sesión
 	getline(archivo, user1_std);
 
-	System::String^ user2 = lb_open->SelectedItem->ToString();
+	System::String^ user2 = lv_open->SelectedItems->ToString();
 	System::String^ user1 = gcnew System::String(user1_std.c_str());; //se supone ser el usuario que inició sesión en el programa
 	
 	//obtener mensaje
@@ -629,7 +683,7 @@ private: System::Void historialDeChatsToolStripMenuItem_Click(System::Object^ se
 	string user1_std;
 	getline(archivo, user1_std);
 
-	System::String^ user2 = lb_open->SelectedItem->ToString();
+	System::String^ user2 = lv_open->SelectedItems->ToString();
 	System::String^ user1 = gcnew System::String(user1_std.c_str());;
 
 	string nuevoFile = volverString(user1 + user2 + ".msm");
@@ -654,7 +708,7 @@ private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArg
 	getline(archivo, user1_std);
 	archivo.close();
 	String^ user1 = gcnew String(user1_std.c_str());
-	String^ user2 = lb_open->SelectedItem->ToString();
+	String^ user2 = lv_open->SelectedItems->ToString();
 	String^ rutaHistorial = user1 + user2 + ".msm";
 
 	sacarImagen(opF_imagen, pb_sticker1, lv_stickerMultimedia, msm, rutaHistorial);
@@ -693,7 +747,7 @@ private: System::Void bt_multimedia_Click(System::Object^ sender, System::EventA
 		archivo.close();
 
 		String^ user1 = gcnew String(user1_std.c_str());
-		String^ user2 = lb_open->SelectedItem->ToString();
+		String^ user2 = lv_open->SelectedItems->ToString();
 		String^ rutaHistorial = user1 + user2 + ".msm";
 		string mensaje = "[Multimedia enviada: " + volverString(ruta) + "]";
 		string archivoHist = volverString(rutaHistorial);
@@ -704,6 +758,35 @@ private: System::Void bt_multimedia_Click(System::Object^ sender, System::EventA
 		msm.GuardarMensajes(guardar);
 		guardar.close();
 	}
+}
+private: System::Void ordenarAlfabéticamenteToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	fstream archivo("contactos.amp", ios::in);
+	if (!archivo.is_open()) {
+		MessageBox::Show("No se pudo abrir el archivo.");
+		return;
+	}
+
+	Contacto c;
+	c.OrdenarAlfabeto(archivo);
+	archivo.close();
+	cargarContactosEnListView(lv_open);
+	cargarContactosEnListView(lv_closed);
+}
+private: System::Void ordenarPorRecientesToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	fstream archivo("contactos.amp", ios::in);
+	if (!archivo.is_open()) {
+		MessageBox::Show("No se pudo abrir el archivo.");
+		return;
+	}
+
+	Contacto c;
+	c.OrdenarReciente(archivo);
+	archivo.close();
+	cargarContactosEnListView(lv_open);
+	cargarContactosEnListView(lv_closed);
+}
+private: System::Void lb_mensajes_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	
 }
 };
 }

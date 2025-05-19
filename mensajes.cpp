@@ -88,7 +88,7 @@ void mensajes::limpiarEliminados(){
 	}
 }
 
-void mensajes::deshacerEliminar(){
+void mensajes::deshacer(){
 	if (pilaVacia()) {
 		throw std::underflow_error("No hay mensajes para deshacer");
 	}

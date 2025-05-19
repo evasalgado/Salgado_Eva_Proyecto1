@@ -36,6 +36,8 @@ using namespace std;
 	 void GuardarDatos(fstream& archivo);
 	 void CargarDatos(fstream& archivo);
 	 void CargarContacto(fstream& archivo);
+	 void OrdenarAlfabeto(fstream& archivo);
+	 void OrdenarReciente(fstream& archivo);
 	 ~Contacto();
 };
 

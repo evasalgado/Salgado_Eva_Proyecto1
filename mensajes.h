@@ -19,7 +19,7 @@ public:
 	string quitarEliminado();
 	string quitarMensaje(int indice);
 	void limpiarEliminados();
-	void deshacerEliminar();
+	void deshacer();
 	void agregarNoLeido(const string& mensaje);
 	vector<string> obtenerNoLeido();
 	int cantidadNoLeido();
