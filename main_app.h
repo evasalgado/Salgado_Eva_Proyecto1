@@ -788,5 +788,18 @@ private: System::Void ordenarPorRecientesToolStripMenuItem_Click(System::Object^
 private: System::Void lb_mensajes_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	
 }
+private: System::Void lb_mensajes_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	mensajes msm;
+	int indice = lb_mensajes->SelectedIndex;
+	if (indice >= 0) {
+		try {
+			msm.quitarMensaje(indice);
+			lb_mensajes->Items->RemoveAt(indice);
+		}
+		catch (const std::exception& ex) {
+			MessageBox::Show(gcnew System::String(ex.what()), "Error");
+		}
+	}
+}
 };
 }
