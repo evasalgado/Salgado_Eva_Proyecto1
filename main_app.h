@@ -61,7 +61,7 @@ namespace Salgado_Eva_Proyecto1 {
 
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::TextBox^ tb_mensaje;
-	private: System::Windows::Forms::ListBox^ lb_mensajes;
+
 
 
 
@@ -78,12 +78,18 @@ namespace Salgado_Eva_Proyecto1 {
 
 
 	private: System::Windows::Forms::Panel^ panel2;
-	private: System::Windows::Forms::PictureBox^ pictureBox6;
-	private: System::Windows::Forms::PictureBox^ pictureBox5;
-	private: System::Windows::Forms::PictureBox^ pictureBox4;
-	private: System::Windows::Forms::PictureBox^ pictureBox3;
-	private: System::Windows::Forms::PictureBox^ pictureBox2;
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pb_sticker6;
+
+	private: System::Windows::Forms::PictureBox^ pb_sticker5;
+
+	private: System::Windows::Forms::PictureBox^ pb_sticker4;
+
+	private: System::Windows::Forms::PictureBox^ pb_sticker3;
+
+	private: System::Windows::Forms::PictureBox^ pb_sticker2;
+
+	private: System::Windows::Forms::PictureBox^ pb_sticker1;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ ajustesToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ agregarToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ cuentaToolStripMenuItem;
@@ -95,7 +101,11 @@ namespace Salgado_Eva_Proyecto1 {
 	private: System::Windows::Forms::ToolStripMenuItem^ créditosToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ cerrarSesiónToolStripMenuItem;
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
-	private: System::Windows::Forms::ImageList^ imageList1;
+	private: System::Windows::Forms::ImageList^ imgL_imagenes;
+
+	private: System::Windows::Forms::ListView^ lv_stickerMultimedia;
+	private: System::Windows::Forms::ListBox^ lb_mensajes;
+	private: System::Windows::Forms::OpenFileDialog^ opF_imagen;
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -122,11 +132,19 @@ namespace Salgado_Eva_Proyecto1 {
 			this->tb_Closed = (gcnew System::Windows::Forms::TabPage());
 			this->lb_closed = (gcnew System::Windows::Forms::ListBox());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->lv_stickerMultimedia = (gcnew System::Windows::Forms::ListView());
+			this->imgL_imagenes = (gcnew System::Windows::Forms::ImageList(this->components));
 			this->bt_multimedia = (gcnew System::Windows::Forms::Button());
 			this->bt_enviar = (gcnew System::Windows::Forms::Button());
 			this->tb_mensaje = (gcnew System::Windows::Forms::TextBox());
 			this->lb_mensajes = (gcnew System::Windows::Forms::ListBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->pb_sticker6 = (gcnew System::Windows::Forms::PictureBox());
+			this->pb_sticker5 = (gcnew System::Windows::Forms::PictureBox());
+			this->pb_sticker4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pb_sticker3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pb_sticker2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pb_sticker1 = (gcnew System::Windows::Forms::PictureBox());
 			this->ajustesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cuentaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -138,25 +156,19 @@ namespace Salgado_Eva_Proyecto1 {
 			this->créditosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cerrarSesiónToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
+			this->opF_imagen = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->tb_chats->SuspendLayout();
 			this->tb_open->SuspendLayout();
 			this->tb_Closed->SuspendLayout();
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pb_sticker6))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pb_sticker5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pb_sticker4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pb_sticker3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pb_sticker2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pb_sticker1))->BeginInit();
 			this->menuStrip1->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tb_chats
@@ -231,6 +243,7 @@ namespace Salgado_Eva_Proyecto1 {
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(189)), static_cast<System::Int32>(static_cast<System::Byte>(230)),
 				static_cast<System::Int32>(static_cast<System::Byte>(226)));
+			this->panel1->Controls->Add(this->lv_stickerMultimedia);
 			this->panel1->Controls->Add(this->bt_multimedia);
 			this->panel1->Controls->Add(this->bt_enviar);
 			this->panel1->Controls->Add(this->tb_mensaje);
@@ -240,6 +253,28 @@ namespace Salgado_Eva_Proyecto1 {
 			this->panel1->Size = System::Drawing::Size(678, 522);
 			this->panel1->TabIndex = 9;
 			// 
+			// lv_stickerMultimedia
+			// 
+			this->lv_stickerMultimedia->BackColor = System::Drawing::Color::Beige;
+			this->lv_stickerMultimedia->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lv_stickerMultimedia->ForeColor = System::Drawing::Color::DarkSlateGray;
+			this->lv_stickerMultimedia->FullRowSelect = true;
+			this->lv_stickerMultimedia->HideSelection = false;
+			this->lv_stickerMultimedia->Location = System::Drawing::Point(332, 36);
+			this->lv_stickerMultimedia->Name = L"lv_stickerMultimedia";
+			this->lv_stickerMultimedia->Size = System::Drawing::Size(338, 400);
+			this->lv_stickerMultimedia->SmallImageList = this->imgL_imagenes;
+			this->lv_stickerMultimedia->TabIndex = 15;
+			this->lv_stickerMultimedia->UseCompatibleStateImageBehavior = false;
+			this->lv_stickerMultimedia->View = System::Windows::Forms::View::Details;
+			// 
+			// imgL_imagenes
+			// 
+			this->imgL_imagenes->ColorDepth = System::Windows::Forms::ColorDepth::Depth8Bit;
+			this->imgL_imagenes->ImageSize = System::Drawing::Size(16, 16);
+			this->imgL_imagenes->TransparentColor = System::Drawing::Color::Transparent;
+			// 
 			// bt_multimedia
 			// 
 			this->bt_multimedia->Location = System::Drawing::Point(4, 458);
@@ -248,6 +283,7 @@ namespace Salgado_Eva_Proyecto1 {
 			this->bt_multimedia->TabIndex = 14;
 			this->bt_multimedia->Text = L"Multimedia";
 			this->bt_multimedia->UseVisualStyleBackColor = true;
+			this->bt_multimedia->Click += gcnew System::EventHandler(this, &main_app::bt_multimedia_Click);
 			// 
 			// bt_enviar
 			// 
@@ -276,30 +312,79 @@ namespace Salgado_Eva_Proyecto1 {
 			// 
 			// lb_mensajes
 			// 
-			this->lb_mensajes->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(217)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(193)));
+			this->lb_mensajes->BackColor = System::Drawing::Color::Beige;
 			this->lb_mensajes->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->lb_mensajes->ForeColor = System::Drawing::Color::DarkSlateGray;
 			this->lb_mensajes->FormattingEnabled = true;
 			this->lb_mensajes->ItemHeight = 36;
 			this->lb_mensajes->Location = System::Drawing::Point(4, 36);
 			this->lb_mensajes->Name = L"lb_mensajes";
-			this->lb_mensajes->Size = System::Drawing::Size(678, 400);
+			this->lb_mensajes->Size = System::Drawing::Size(330, 400);
 			this->lb_mensajes->TabIndex = 10;
 			// 
 			// panel2
 			// 
 			this->panel2->BackColor = System::Drawing::Color::OliveDrab;
-			this->panel2->Controls->Add(this->pictureBox6);
-			this->panel2->Controls->Add(this->pictureBox5);
-			this->panel2->Controls->Add(this->pictureBox4);
-			this->panel2->Controls->Add(this->pictureBox3);
-			this->panel2->Controls->Add(this->pictureBox2);
-			this->panel2->Controls->Add(this->pictureBox1);
+			this->panel2->Controls->Add(this->pb_sticker6);
+			this->panel2->Controls->Add(this->pb_sticker5);
+			this->panel2->Controls->Add(this->pb_sticker4);
+			this->panel2->Controls->Add(this->pb_sticker3);
+			this->panel2->Controls->Add(this->pb_sticker2);
+			this->panel2->Controls->Add(this->pb_sticker1);
 			this->panel2->Location = System::Drawing::Point(237, 568);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(678, 100);
 			this->panel2->TabIndex = 10;
+			// 
+			// pb_sticker6
+			// 
+			this->pb_sticker6->Location = System::Drawing::Point(556, 16);
+			this->pb_sticker6->Name = L"pb_sticker6";
+			this->pb_sticker6->Size = System::Drawing::Size(78, 61);
+			this->pb_sticker6->TabIndex = 5;
+			this->pb_sticker6->TabStop = false;
+			// 
+			// pb_sticker5
+			// 
+			this->pb_sticker5->Location = System::Drawing::Point(455, 16);
+			this->pb_sticker5->Name = L"pb_sticker5";
+			this->pb_sticker5->Size = System::Drawing::Size(78, 61);
+			this->pb_sticker5->TabIndex = 4;
+			this->pb_sticker5->TabStop = false;
+			// 
+			// pb_sticker4
+			// 
+			this->pb_sticker4->Location = System::Drawing::Point(344, 16);
+			this->pb_sticker4->Name = L"pb_sticker4";
+			this->pb_sticker4->Size = System::Drawing::Size(78, 61);
+			this->pb_sticker4->TabIndex = 3;
+			this->pb_sticker4->TabStop = false;
+			// 
+			// pb_sticker3
+			// 
+			this->pb_sticker3->Location = System::Drawing::Point(234, 16);
+			this->pb_sticker3->Name = L"pb_sticker3";
+			this->pb_sticker3->Size = System::Drawing::Size(78, 61);
+			this->pb_sticker3->TabIndex = 2;
+			this->pb_sticker3->TabStop = false;
+			// 
+			// pb_sticker2
+			// 
+			this->pb_sticker2->Location = System::Drawing::Point(126, 16);
+			this->pb_sticker2->Name = L"pb_sticker2";
+			this->pb_sticker2->Size = System::Drawing::Size(78, 61);
+			this->pb_sticker2->TabIndex = 1;
+			this->pb_sticker2->TabStop = false;
+			// 
+			// pb_sticker1
+			// 
+			this->pb_sticker1->Location = System::Drawing::Point(17, 16);
+			this->pb_sticker1->Name = L"pb_sticker1";
+			this->pb_sticker1->Size = System::Drawing::Size(78, 61);
+			this->pb_sticker1->TabIndex = 0;
+			this->pb_sticker1->TabStop = false;
+			this->pb_sticker1->Click += gcnew System::EventHandler(this, &main_app::pictureBox1_Click);
 			// 
 			// ajustesToolStripMenuItem
 			// 
@@ -387,59 +472,9 @@ namespace Salgado_Eva_Proyecto1 {
 			this->menuStrip1->Text = L"menuStrip1";
 			this->menuStrip1->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &main_app::menuStrip1_ItemClicked);
 			// 
-			// imageList1
+			// opF_imagen
 			// 
-			this->imageList1->ColorDepth = System::Windows::Forms::ColorDepth::Depth8Bit;
-			this->imageList1->ImageSize = System::Drawing::Size(16, 16);
-			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
-			// 
-			// pictureBox1
-			// 
-			this->pictureBox1->Location = System::Drawing::Point(17, 16);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(78, 61);
-			this->pictureBox1->TabIndex = 0;
-			this->pictureBox1->TabStop = false;
-			// 
-			// pictureBox2
-			// 
-			this->pictureBox2->Location = System::Drawing::Point(126, 16);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(78, 61);
-			this->pictureBox2->TabIndex = 1;
-			this->pictureBox2->TabStop = false;
-			// 
-			// pictureBox3
-			// 
-			this->pictureBox3->Location = System::Drawing::Point(234, 16);
-			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(78, 61);
-			this->pictureBox3->TabIndex = 2;
-			this->pictureBox3->TabStop = false;
-			// 
-			// pictureBox4
-			// 
-			this->pictureBox4->Location = System::Drawing::Point(344, 16);
-			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(78, 61);
-			this->pictureBox4->TabIndex = 3;
-			this->pictureBox4->TabStop = false;
-			// 
-			// pictureBox5
-			// 
-			this->pictureBox5->Location = System::Drawing::Point(455, 16);
-			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(78, 61);
-			this->pictureBox5->TabIndex = 4;
-			this->pictureBox5->TabStop = false;
-			// 
-			// pictureBox6
-			// 
-			this->pictureBox6->Location = System::Drawing::Point(556, 16);
-			this->pictureBox6->Name = L"pictureBox6";
-			this->pictureBox6->Size = System::Drawing::Size(78, 61);
-			this->pictureBox6->TabIndex = 5;
-			this->pictureBox6->TabStop = false;
+			this->opF_imagen->FileName = L"openFileDialog1";
 			// 
 			// main_app
 			// 
@@ -463,14 +498,14 @@ namespace Salgado_Eva_Proyecto1 {
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->panel2->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pb_sticker6))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pb_sticker5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pb_sticker4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pb_sticker3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pb_sticker2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pb_sticker1))->EndInit();
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -493,6 +528,20 @@ namespace Salgado_Eva_Proyecto1 {
 			System::Runtime::InteropServices::Marshal::FreeHGlobal(System::IntPtr((void*)wchars));        std::string str(ws.begin(), ws.end());
 			return str;
 		}
+		void Salgado_Eva_Proyecto1::main_app::sacarImagen(OpenFileDialog^ opF, PictureBox^ pb, ListView^ lv, mensajes& msm, String^ rutaArchivo) {
+			if (opF->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+				String^ nuevoFile = opF->FileName;
+				pb->Image = System::Drawing::Image::FromFile(nuevoFile);
+
+				lv->Items->Add("[Imagen enviada: " + nuevoFile + "]");
+				string rutaImagen = volverString(nuevoFile);
+				string mensaje = "[Imagen enviada: " + rutaImagen + "]";
+				msm.insertarMensaje(mensaje);
+				string archivoStd = volverString(rutaArchivo);
+				fstream archivo(archivoStd, ios::out);
+				msm.GuardarMensajes(archivo);
+			}
+		}
 private: System::Void main_app_Load(System::Object^ sender, System::EventArgs^ e) {
 
 }
@@ -504,53 +553,138 @@ private: System::Void cerrarSesiónToolStripMenuItem_Click(System::Object^ sender
 private: System::Void tb_open_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	System::String^ usuario;
-	tb_mensaje->Text = lb_open->Text+": ";
+	fstream archivo("contactos.amp", ios::in);
+	string user1_std;//string para identificar el usuario que inició sesión
+	getline(archivo, user1_std);
+
+	System::String^ user = lb_open->SelectedItem->ToString();
+	tb_mensaje->Text = user + ": ";
 }
 private: System::Void lb_closed_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	std::fstream archivo("contactos.amp", std::ios::in);
+	fstream archivo("contactos.amp", std::ios::in);
 	if (!archivo.is_open()) {
 		MessageBox::Show("No se puede abrir archivo");
 		return;
 	}
 	std::string linea;
-	if (std::getline(archivo, linea)) {
+	if (getline(archivo, linea)) {
 		System::String^ user = gcnew System::String(linea.c_str());
-		tb_mensaje->Text=user+": "; 
+		lb_mensajes->Text=user+": "; 
 	}
 }
 private: System::Void bt_enviar_Click(System::Object^ sender, System::EventArgs^ e) { //todo lo del chat se debe actualizar cuando se envie nuevo mensaje
 	fstream archivo("contactos.amp", ios::in);
 	string user1_std;//string para identificar el usuario que inició sesión
 	getline(archivo, user1_std);
+
 	System::String^ user2 = lb_open->SelectedItem->ToString();
 	System::String^ user1 = gcnew System::String(user1_std.c_str());; //se supone ser el usuario que inició sesión en el programa
+	
+	//obtener mensaje
 	string mensaje = sacarTexto(tb_mensaje);
 	System::String^ displayText = tb_mensaje->Text;
+
+	//mostrar en la lista
 	lb_mensajes->Items->Add(displayText);
 	tb_mensaje->Text = " ";
 	
 	string nuevoFile = volverString(user1 + user2 + ".msm");
-	std::fstream historial(nuevoFile, std::ios::in | std::ios::out | std::ios::app);
+	//cargar historial
+	fstream historial(nuevoFile, std::ios::in | std::ios::out | std::ios::app);
 	mensajes msm;
+
+	//cargar mensajes anteriores
+	msm.CargarMensajes(historial);
+	historial.close();
+
+	msm.insertarMensaje(mensaje);
+
+	//guardar todos los mensajes
+	historial.open(nuevoFile, ios::out | ios::trunc);
 	msm.GuardarMensajes(historial);
+	historial.close();
 }
 private: System::Void historialDeChatsToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {//mostrar el historial de chat cuando se seleccione
 	lb_mensajes->Items->Clear();
 	fstream archivo("contactos.amp", ios::in);
-	mensajes msm;
 	string user1_std;
 	getline(archivo, user1_std);
+
 	System::String^ user2 = lb_open->SelectedItem->ToString();
 	System::String^ user1 = gcnew System::String(user1_std.c_str());;
+
 	string nuevoFile = volverString(user1 + user2 + ".msm");
-	std::fstream historial(nuevoFile, std::ios::out);
-	System::String^ cargar = gcnew System::String(msm.obtenerMensajes());
-	lb_mensajes->Items->Add(cargar);
+
+	fstream historial(nuevoFile, std::ios::out);
+	mensajes msm;
+	msm.CargarMensajes(historial);
+	const vector<string>& mensajesCargados = msm.obtenerMensajes();
+	for (const string& linea : mensajesCargados) {
+		lb_mensajes->Items->Add(gcnew System::String(linea.c_str()));
+	}
+	historial.close();
 	
 }
 private: System::Void menuStrip1_ItemClicked(System::Object^ sender, System::Windows::Forms::ToolStripItemClickedEventArgs^ e) {
 
+}
+private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+	mensajes msm;
+	fstream archivo("contactos.amp", ios::in);
+	string user1_std;
+	getline(archivo, user1_std);
+	archivo.close();
+	String^ user1 = gcnew String(user1_std.c_str());
+	String^ user2 = lb_open->SelectedItem->ToString();
+	String^ rutaHistorial = user1 + user2 + ".msm";
+
+	sacarImagen(opF_imagen, pb_sticker1, lv_stickerMultimedia, msm, rutaHistorial);
+}
+private: System::Void bt_multimedia_Click(System::Object^ sender, System::EventArgs^ e) {
+	OpenFileDialog^ dialogo = gcnew OpenFileDialog();
+	dialogo->Title = "Selecciona un archivo multimedia";
+	dialogo->Filter = "Archivos multimedia|*.jpg;*.jpeg;*.png;*.bmp;*.gif;*.mp4;*.avi;*.mov;*.mkv|Todos los archivos|*.*";
+	if (dialogo->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+		String^ ruta = dialogo->FileName;
+
+		if (System::IO::Path::GetExtension(ruta)->ToLower()->Contains(".jpg") ||
+			System::IO::Path::GetExtension(ruta)->ToLower()->Contains(".png") ||
+			System::IO::Path::GetExtension(ruta)->ToLower()->Contains(".bmp") ||
+			System::IO::Path::GetExtension(ruta)->ToLower()->Contains(".gif")) {
+
+			Image^ imagen = Image::FromFile(ruta);
+			imgL_imagenes->Images->Add(ruta, imagen);
+
+			ListViewItem^ objeto = gcnew ListViewItem();
+			objeto->Text = System::IO::Path::GetFileName(ruta);
+			objeto->ImageKey = ruta;
+			objeto->ToolTipText = ruta;
+			lv_stickerMultimedia->Items->Add(objeto);
+
+		}
+		else {
+			ListViewItem^ objeto = gcnew ListViewItem("[Video]: " + System::IO::Path::GetFileName(ruta));
+			objeto->ToolTipText = ruta;
+			lv_stickerMultimedia->Items->Add(objeto);
+		} 
+
+		fstream archivo("contactos.amp", ios::in);
+		string user1_std;
+		getline(archivo, user1_std);
+		archivo.close();
+
+		String^ user1 = gcnew String(user1_std.c_str());
+		String^ user2 = lb_open->SelectedItem->ToString();
+		String^ rutaHistorial = user1 + user2 + ".msm";
+		string mensaje = "[Multimedia enviada: " + volverString(ruta) + "]";
+		string archivoHist = volverString(rutaHistorial);
+
+		mensajes msm;
+		fstream guardar(archivoHist, ios::out | ios::app);
+		msm.insertarMensaje(mensaje);
+		msm.GuardarMensajes(guardar);
+		guardar.close();
+	}
 }
 };
 }
