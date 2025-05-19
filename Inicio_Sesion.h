@@ -1,6 +1,9 @@
 #pragma once
-
-namespace Salgado_Eva_Proyecto1 {
+#include "Registro.h"
+#include "Contacto.h"
+#include "main_app.h"
+#include "Form1.h"
+namespace Salgado_Eva_Proyecto1{
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -8,7 +11,6 @@ namespace Salgado_Eva_Proyecto1 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
 	/// <summary>
 	/// Resumen de Inicio_Sesion
 	/// </summary>
@@ -37,10 +39,13 @@ namespace Salgado_Eva_Proyecto1 {
 	private: System::Windows::Forms::Label^ label5;
 	protected:
 	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::TextBox^ ps_contraseña;
+
 	private: System::Windows::Forms::Label^ lb_cambioregistro;
-	private: System::Windows::Forms::Button^ button1;
-	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Button^ bt_iniciarSesion;
+	private: System::Windows::Forms::TextBox^ tb_userOrMail;
+
+
 	private: System::Windows::Forms::Label^ label2;
 
 	private:
@@ -58,10 +63,10 @@ namespace Salgado_Eva_Proyecto1 {
 		{
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->ps_contraseña = (gcnew System::Windows::Forms::TextBox());
 			this->lb_cambioregistro = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->bt_iniciarSesion = (gcnew System::Windows::Forms::Button());
+			this->tb_userOrMail = (gcnew System::Windows::Forms::TextBox());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
@@ -89,15 +94,16 @@ namespace Salgado_Eva_Proyecto1 {
 			this->label4->TabIndex = 31;
 			this->label4->Text = L"Nombre de usuario o correo electrónico:";
 			// 
-			// textBox2
+			// ps_contraseña
 			// 
-			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->ps_contraseña->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(170, 377);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->PasswordChar = '*';
-			this->textBox2->Size = System::Drawing::Size(331, 41);
-			this->textBox2->TabIndex = 30;
+			this->ps_contraseña->Location = System::Drawing::Point(170, 377);
+			this->ps_contraseña->Name = L"ps_contraseña";
+			this->ps_contraseña->PasswordChar = '*';
+			this->ps_contraseña->Size = System::Drawing::Size(331, 41);
+			this->ps_contraseña->TabIndex = 30;
+			this->ps_contraseña->UseSystemPasswordChar = true;
 			// 
 			// lb_cambioregistro
 			// 
@@ -107,24 +113,26 @@ namespace Salgado_Eva_Proyecto1 {
 			this->lb_cambioregistro->Size = System::Drawing::Size(240, 16);
 			this->lb_cambioregistro->TabIndex = 29;
 			this->lb_cambioregistro->Text = L"¿No tienes una cuenta\? Regístrate aquí";
+			this->lb_cambioregistro->Click += gcnew System::EventHandler(this, &Inicio_Sesion::lb_cambioregistro_Click);
 			// 
-			// button1
+			// bt_iniciarSesion
 			// 
-			this->button1->Location = System::Drawing::Point(242, 494);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(175, 48);
-			this->button1->TabIndex = 28;
-			this->button1->Text = L"Iniciar sesión";
-			this->button1->UseVisualStyleBackColor = true;
+			this->bt_iniciarSesion->Location = System::Drawing::Point(242, 494);
+			this->bt_iniciarSesion->Name = L"bt_iniciarSesion";
+			this->bt_iniciarSesion->Size = System::Drawing::Size(175, 48);
+			this->bt_iniciarSesion->TabIndex = 28;
+			this->bt_iniciarSesion->Text = L"Iniciar sesión";
+			this->bt_iniciarSesion->UseVisualStyleBackColor = true;
+			this->bt_iniciarSesion->Click += gcnew System::EventHandler(this, &Inicio_Sesion::button1_Click);
 			// 
-			// textBox1
+			// tb_userOrMail
 			// 
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->tb_userOrMail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(175, 269);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(331, 41);
-			this->textBox1->TabIndex = 27;
+			this->tb_userOrMail->Location = System::Drawing::Point(175, 269);
+			this->tb_userOrMail->Name = L"tb_userOrMail";
+			this->tb_userOrMail->Size = System::Drawing::Size(331, 41);
+			this->tb_userOrMail->TabIndex = 27;
 			// 
 			// label2
 			// 
@@ -149,10 +157,10 @@ namespace Salgado_Eva_Proyecto1 {
 			this->ClientSize = System::Drawing::Size(672, 666);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
-			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->ps_contraseña);
 			this->Controls->Add(this->lb_cambioregistro);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->bt_iniciarSesion);
+			this->Controls->Add(this->tb_userOrMail);
 			this->Controls->Add(this->label2);
 			this->Name = L"Inicio_Sesion";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
@@ -163,7 +171,44 @@ namespace Salgado_Eva_Proyecto1 {
 
 		}
 #pragma endregion
+		string sacarTexto(System::Windows::Forms::TextBox^ tb) {
+			System::String^ textBox = tb->Text;
+			string contenidoSTD;
+			for (int i = 0; i < textBox->Length; i++) {
+				contenidoSTD += (char)textBox[i];
+			}
+			return contenidoSTD;
+		}
+		bool existeTexto(fstream& texto, const string& buscar) {
+			string linea;
+			while (getline(texto, linea)) {
+				if (linea == buscar){
+					return true;
+				}
+			}
+			return false;
+		}
 	private: System::Void Inicio_Sesion_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
+private: System::Void lb_cambioregistro_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	Contacto c;
+	fstream getUsuario("contactos.amp", std::ios::out | std::ios::binary | std::ios::app);
+	string usuario = sacarTexto(tb_userOrMail),
+		contraseña = sacarTexto(ps_contraseña);
+	if (existeTexto(getUsuario, usuario) && existeTexto(getUsuario, contraseña)) {
+		c.CargarDatos(getUsuario);
+		//(gcnew Salgado_Eva_Proyecto1::main_app())->Show();
+		this->Hide();
+	}
+		cerr << "User, correo o contraseña incorrectos";
+	{
+
+	}
+
+}
 };
 }

@@ -7,6 +7,7 @@
 #include "Header2.h"
 #include "Registro.h"
 #include "Inicio_Sesion.h"
+#include "main_app.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -176,12 +177,12 @@ namespace CppCLRWinFormsProject {
 
 
   private: System::Void bt_comenzar_Click(System::Object^ sender, System::EventArgs^ e) {
-      (gcnew Salgado_Eva_Proyecto1::Registro())->Hide();
+      this->Hide();
       (gcnew Salgado_Eva_Proyecto1::Inicio_Sesion())->Show();
 
   }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-    (gcnew Salgado_Eva_Proyecto1::Inicio_Sesion())->Hide();
+    this -> Hide();
     (gcnew Salgado_Eva_Proyecto1::Registro())->Show();
 }
 }; // end of class Form1

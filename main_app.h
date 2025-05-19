@@ -1,5 +1,7 @@
 #pragma once
-
+#include "mensajes.h"
+#include "Contacto.h"
+#include "Form1.h";
 namespace Salgado_Eva_Proyecto1 {
 
 	using namespace System;
@@ -47,9 +49,17 @@ namespace Salgado_Eva_Proyecto1 {
 	private: System::Windows::Forms::ToolStripMenuItem^ editarPerfilToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ cerrarSesiónToolStripMenuItem;
 	private: System::Windows::Forms::Panel^ panel1;
-	private: System::Windows::Forms::TextBox^ textBox1;
-	private: System::Windows::Forms::ListBox^ listBox1;
-	private: System::Windows::Forms::MenuStrip^ menuStrip2;
+	private: System::Windows::Forms::TextBox^ tb_mensaje;
+	private: System::Windows::Forms::ListBox^ lb_mensajes;
+
+
+
+	private: System::Windows::Forms::ToolStripMenuItem^ acercaDeToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ créditosToolStripMenuItem;
+	private: System::Windows::Forms::Button^ bt_enviar;
+	private: System::Windows::Forms::ListBox^ lb_open;
+	private: System::Windows::Forms::ListBox^ lb_closed;
+
 
 
 	private:
@@ -67,17 +77,23 @@ namespace Salgado_Eva_Proyecto1 {
 		{
 			this->tb_chats = (gcnew System::Windows::Forms::TabControl());
 			this->tb_open = (gcnew System::Windows::Forms::TabPage());
+			this->lb_open = (gcnew System::Windows::Forms::ListBox());
 			this->tb_Closed = (gcnew System::Windows::Forms::TabPage());
+			this->lb_closed = (gcnew System::Windows::Forms::ListBox());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ajustesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cuentaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editarPerfilToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cerrarSesiónToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->acercaDeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->créditosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
-			this->menuStrip2 = (gcnew System::Windows::Forms::MenuStrip());
+			this->bt_enviar = (gcnew System::Windows::Forms::Button());
+			this->tb_mensaje = (gcnew System::Windows::Forms::TextBox());
+			this->lb_mensajes = (gcnew System::Windows::Forms::ListBox());
 			this->tb_chats->SuspendLayout();
+			this->tb_open->SuspendLayout();
+			this->tb_Closed->SuspendLayout();
 			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
@@ -96,7 +112,8 @@ namespace Salgado_Eva_Proyecto1 {
 			// 
 			// tb_open
 			// 
-			this->tb_open->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->tb_open->BackColor = System::Drawing::Color::LightBlue;
+			this->tb_open->Controls->Add(this->lb_open);
 			this->tb_open->Font = (gcnew System::Drawing::Font(L"Lucida Console", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tb_open->Location = System::Drawing::Point(4, 30);
@@ -105,9 +122,26 @@ namespace Salgado_Eva_Proyecto1 {
 			this->tb_open->Size = System::Drawing::Size(192, 535);
 			this->tb_open->TabIndex = 0;
 			this->tb_open->Text = L"Open";
+			this->tb_open->Click += gcnew System::EventHandler(this, &main_app::tb_open_Click);
+			// 
+			// lb_open
+			// 
+			this->lb_open->BackColor = System::Drawing::Color::Azure;
+			this->lb_open->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lb_open->ForeColor = System::Drawing::Color::DarkGreen;
+			this->lb_open->FormattingEnabled = true;
+			this->lb_open->ItemHeight = 41;
+			this->lb_open->Location = System::Drawing::Point(0, 0);
+			this->lb_open->Name = L"lb_open";
+			this->lb_open->Size = System::Drawing::Size(192, 537);
+			this->lb_open->TabIndex = 0;
+			this->lb_open->SelectedIndexChanged += gcnew System::EventHandler(this, &main_app::listBox1_SelectedIndexChanged);
 			// 
 			// tb_Closed
 			// 
+			this->tb_Closed->BackColor = System::Drawing::Color::LightBlue;
+			this->tb_Closed->Controls->Add(this->lb_closed);
 			this->tb_Closed->Font = (gcnew System::Drawing::Font(L"Lucida Console", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->tb_Closed->ForeColor = System::Drawing::SystemColors::ActiveCaption;
@@ -117,7 +151,20 @@ namespace Salgado_Eva_Proyecto1 {
 			this->tb_Closed->Size = System::Drawing::Size(192, 535);
 			this->tb_Closed->TabIndex = 1;
 			this->tb_Closed->Text = L"Closed";
-			this->tb_Closed->UseVisualStyleBackColor = true;
+			// 
+			// lb_closed
+			// 
+			this->lb_closed->BackColor = System::Drawing::Color::Azure;
+			this->lb_closed->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lb_closed->ForeColor = System::Drawing::Color::DarkGreen;
+			this->lb_closed->FormattingEnabled = true;
+			this->lb_closed->ItemHeight = 41;
+			this->lb_closed->Location = System::Drawing::Point(4, 4);
+			this->lb_closed->Name = L"lb_closed";
+			this->lb_closed->Size = System::Drawing::Size(185, 537);
+			this->lb_closed->TabIndex = 0;
+			this->lb_closed->SelectedIndexChanged += gcnew System::EventHandler(this, &main_app::lb_closed_SelectedIndexChanged);
 			// 
 			// menuStrip1
 			// 
@@ -131,9 +178,9 @@ namespace Salgado_Eva_Proyecto1 {
 			// 
 			// ajustesToolStripMenuItem
 			// 
-			this->ajustesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->ajustesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->cuentaToolStripMenuItem,
-					this->cerrarSesiónToolStripMenuItem
+					this->cerrarSesiónToolStripMenuItem, this->acercaDeToolStripMenuItem
 			});
 			this->ajustesToolStripMenuItem->Name = L"ajustesToolStripMenuItem";
 			this->ajustesToolStripMenuItem->Size = System::Drawing::Size(70, 24);
@@ -157,46 +204,69 @@ namespace Salgado_Eva_Proyecto1 {
 			this->cerrarSesiónToolStripMenuItem->Name = L"cerrarSesiónToolStripMenuItem";
 			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(179, 26);
 			this->cerrarSesiónToolStripMenuItem->Text = L"Cerrar Sesión";
+			this->cerrarSesiónToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::cerrarSesiónToolStripMenuItem_Click);
+			// 
+			// acercaDeToolStripMenuItem
+			// 
+			this->acercaDeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->créditosToolStripMenuItem });
+			this->acercaDeToolStripMenuItem->Name = L"acercaDeToolStripMenuItem";
+			this->acercaDeToolStripMenuItem->Size = System::Drawing::Size(179, 26);
+			this->acercaDeToolStripMenuItem->Text = L"Acerca de";
+			// 
+			// créditosToolStripMenuItem
+			// 
+			this->créditosToolStripMenuItem->Name = L"créditosToolStripMenuItem";
+			this->créditosToolStripMenuItem->Size = System::Drawing::Size(147, 26);
+			this->créditosToolStripMenuItem->Text = L"Créditos";
 			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(189)), static_cast<System::Int32>(static_cast<System::Byte>(230)),
 				static_cast<System::Int32>(static_cast<System::Byte>(226)));
-			this->panel1->Controls->Add(this->textBox1);
-			this->panel1->Controls->Add(this->listBox1);
-			this->panel1->Controls->Add(this->menuStrip2);
+			this->panel1->Controls->Add(this->bt_enviar);
+			this->panel1->Controls->Add(this->tb_mensaje);
+			this->panel1->Controls->Add(this->lb_mensajes);
 			this->panel1->Location = System::Drawing::Point(237, 39);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(678, 569);
 			this->panel1->TabIndex = 9;
 			// 
-			// textBox1
+			// bt_enviar
 			// 
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"MT Extra", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(2)));
-			this->textBox1->Location = System::Drawing::Point(4, 500);
-			this->textBox1->Multiline = true;
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(670, 22);
-			this->textBox1->TabIndex = 11;
+			this->bt_enviar->BackColor = System::Drawing::Color::Cornsilk;
+			this->bt_enviar->Font = (gcnew System::Drawing::Font(L"MV Boli", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->bt_enviar->ForeColor = System::Drawing::Color::DarkSlateGray;
+			this->bt_enviar->Location = System::Drawing::Point(604, 500);
+			this->bt_enviar->Name = L"bt_enviar";
+			this->bt_enviar->Size = System::Drawing::Size(71, 49);
+			this->bt_enviar->TabIndex = 13;
+			this->bt_enviar->Text = L">";
+			this->bt_enviar->UseVisualStyleBackColor = false;
 			// 
-			// listBox1
+			// tb_mensaje
 			// 
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->ItemHeight = 16;
-			this->listBox1->Location = System::Drawing::Point(0, 32);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(678, 452);
-			this->listBox1->TabIndex = 10;
+			this->tb_mensaje->BackColor = System::Drawing::Color::Linen;
+			this->tb_mensaje->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tb_mensaje->Location = System::Drawing::Point(4, 500);
+			this->tb_mensaje->Multiline = true;
+			this->tb_mensaje->Name = L"tb_mensaje";
+			this->tb_mensaje->Size = System::Drawing::Size(593, 49);
+			this->tb_mensaje->TabIndex = 11;
 			// 
-			// menuStrip2
+			// lb_mensajes
 			// 
-			this->menuStrip2->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip2->Location = System::Drawing::Point(0, 0);
-			this->menuStrip2->Name = L"menuStrip2";
-			this->menuStrip2->Size = System::Drawing::Size(678, 24);
-			this->menuStrip2->TabIndex = 12;
-			this->menuStrip2->Text = L"menuStrip2";
+			this->lb_mensajes->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(217)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(193)));
+			this->lb_mensajes->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lb_mensajes->FormattingEnabled = true;
+			this->lb_mensajes->ItemHeight = 36;
+			this->lb_mensajes->Location = System::Drawing::Point(0, 3);
+			this->lb_mensajes->Name = L"lb_mensajes";
+			this->lb_mensajes->Size = System::Drawing::Size(678, 436);
+			this->lb_mensajes->TabIndex = 10;
 			// 
 			// main_app
 			// 
@@ -214,6 +284,8 @@ namespace Salgado_Eva_Proyecto1 {
 			this->Text = L"main_app";
 			this->Load += gcnew System::EventHandler(this, &main_app::main_app_Load);
 			this->tb_chats->ResumeLayout(false);
+			this->tb_open->ResumeLayout(false);
+			this->tb_Closed->ResumeLayout(false);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->panel1->ResumeLayout(false);
@@ -227,5 +299,19 @@ private: System::Void main_app_Load(System::Object^ sender, System::EventArgs^ e
 
 }
 
+private: System::Void cerrarSesiónToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+	//(gcnew Salgado_Eva_Proyecto1::Form())->Show();
+}
+private: System::Void tb_open_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	System::String^ usuario;
+	tb_mensaje->Text = lb_open->SelectedItem->ToString();
+}
+private: System::Void lb_closed_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+	System::String^ usuario;
+	tb_mensaje->Text = lb_open->SelectedItem->ToString();
+}
 };
 }

@@ -8,7 +8,7 @@ using namespace System;
 // }
 
 #include "Form1.h"
-
+#include "main_app.h"
 using namespace System::Windows::Forms;
 
 [STAThread]

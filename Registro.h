@@ -1,5 +1,9 @@
 #pragma once
-
+#include "Inicio_Sesion.h"
+#include "main_app.h"
+#include <string>
+#include "Contacto.h"
+#include "Form1.h";
 namespace Salgado_Eva_Proyecto1 {
 
 	using namespace System;
@@ -8,6 +12,7 @@ namespace Salgado_Eva_Proyecto1 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Resumen de Registro
@@ -34,7 +39,9 @@ namespace Salgado_Eva_Proyecto1 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pB_avatar;
+	protected:
+
 	protected:
 	private: System::Windows::Forms::Label^ label14;
 	private: System::Windows::Forms::Label^ label13;
@@ -49,7 +56,8 @@ namespace Salgado_Eva_Proyecto1 {
 	private: System::Windows::Forms::TextBox^ ps_contraseña;
 	private: System::Windows::Forms::TextBox^ ps_confirmar;
 	private: System::Windows::Forms::Label^ label8;
-	private: System::Windows::Forms::Button^ bt_registro;
+	private: System::Windows::Forms::Button^ bt_registrar;
+
 	private: System::Windows::Forms::TextBox^ tb_usuario;
 	private: System::Windows::Forms::Label^ label9;
 
@@ -66,7 +74,7 @@ namespace Salgado_Eva_Proyecto1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pB_avatar = (gcnew System::Windows::Forms::PictureBox());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->dtp_fecha = (gcnew System::Windows::Forms::DateTimePicker());
@@ -80,20 +88,20 @@ namespace Salgado_Eva_Proyecto1 {
 			this->ps_contraseña = (gcnew System::Windows::Forms::TextBox());
 			this->ps_confirmar = (gcnew System::Windows::Forms::TextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->bt_registro = (gcnew System::Windows::Forms::Button());
+			this->bt_registrar = (gcnew System::Windows::Forms::Button());
 			this->tb_usuario = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_avatar))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// pictureBox1
+			// pB_avatar
 			// 
-			this->pictureBox1->BackColor = System::Drawing::SystemColors::Info;
-			this->pictureBox1->Location = System::Drawing::Point(428, 512);
-			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(100, 99);
-			this->pictureBox1->TabIndex = 60;
-			this->pictureBox1->TabStop = false;
+			this->pB_avatar->BackColor = System::Drawing::SystemColors::Info;
+			this->pB_avatar->Location = System::Drawing::Point(428, 512);
+			this->pB_avatar->Name = L"pB_avatar";
+			this->pB_avatar->Size = System::Drawing::Size(100, 99);
+			this->pB_avatar->TabIndex = 60;
+			this->pB_avatar->TabStop = false;
 			// 
 			// label14
 			// 
@@ -232,15 +240,17 @@ namespace Salgado_Eva_Proyecto1 {
 			this->label8->Size = System::Drawing::Size(215, 16);
 			this->label8->TabIndex = 47;
 			this->label8->Text = L"¿Ya tiene una cuenta\? inicia sesión";
+			this->label8->Click += gcnew System::EventHandler(this, &Registro::label8_Click);
 			// 
-			// bt_registro
+			// bt_registrar
 			// 
-			this->bt_registro->Location = System::Drawing::Point(228, 614);
-			this->bt_registro->Name = L"bt_registro";
-			this->bt_registro->Size = System::Drawing::Size(175, 48);
-			this->bt_registro->TabIndex = 46;
-			this->bt_registro->Text = L"Registrarse";
-			this->bt_registro->UseVisualStyleBackColor = true;
+			this->bt_registrar->Location = System::Drawing::Point(228, 614);
+			this->bt_registrar->Name = L"bt_registrar";
+			this->bt_registrar->Size = System::Drawing::Size(175, 48);
+			this->bt_registrar->TabIndex = 46;
+			this->bt_registrar->Text = L"Registrarse";
+			this->bt_registrar->UseVisualStyleBackColor = true;
+			this->bt_registrar->Click += gcnew System::EventHandler(this, &Registro::bt_registro_Click);
 			// 
 			// tb_usuario
 			// 
@@ -272,7 +282,7 @@ namespace Salgado_Eva_Proyecto1 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(181)), static_cast<System::Int32>(static_cast<System::Byte>(225)),
 				static_cast<System::Int32>(static_cast<System::Byte>(221)));
 			this->ClientSize = System::Drawing::Size(632, 692);
-			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->pB_avatar);
 			this->Controls->Add(this->label14);
 			this->Controls->Add(this->label13);
 			this->Controls->Add(this->dtp_fecha);
@@ -286,16 +296,74 @@ namespace Salgado_Eva_Proyecto1 {
 			this->Controls->Add(this->ps_contraseña);
 			this->Controls->Add(this->ps_confirmar);
 			this->Controls->Add(this->label8);
-			this->Controls->Add(this->bt_registro);
+			this->Controls->Add(this->bt_registrar);
 			this->Controls->Add(this->tb_usuario);
 			this->Controls->Add(this->label9);
 			this->Name = L"Registro";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Registro";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->Load += gcnew System::EventHandler(this, &Registro::Registro_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_avatar))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	};
+		string sacarTexto(System::Windows::Forms::TextBox^ tb) {
+			System::String^ textBox = tb->Text;
+			string contenidoSTD;
+			for (int i = 0; i < textBox->Length; i++) {
+				contenidoSTD += (char)textBox[i];
+			}
+			return contenidoSTD;
+		}
+		string sacarFecha(System::Windows::Forms::DateTimePicker^ dt) {
+			System::DateTime dateTime = dt->Value;
+			System::String^ dateString = dateTime.ToString();
+			string contenidoFecha;
+			for (int i = 0; i < dateString->Length; i++) {
+				contenidoFecha += (char)dateString[i];
+			}
+			return contenidoFecha;
+		}
+		string sacarAvatar(System::Windows::Forms::PictureBox^ pb) {
+			System::String^ ubicacion = pb->ImageLocation;
+			string rutaImagen;
+			if (ubicacion != nullptr) {
+				for (int i = 0; i < ubicacion->Length; i++) {
+					rutaImagen += (char)ubicacion[i];
+				}
+			}return rutaImagen;
+		}
+	private: System::Void Registro_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
+private: System::Void label8_Click(System::Object^ sender, System::EventArgs^ e) {
+	//Inicio_Sesion^ login = gcnew Inicio_Sesion();
+	
+	//login->Show();
+	this->Hide();
+}
+private: System::Void bt_registro_Click(System::Object^ sender, System::EventArgs^ e) {
+	fstream newUsuario("contactos.amp", std::ios::out | std::ios::binary | std::ios::app);
+	string usuario = sacarTexto(tb_usuario),
+		nombre = sacarTexto(tb_name),
+		correo = sacarTexto(tb_correo),
+		contraseña = sacarTexto(ps_contraseña),
+		confirmar = sacarTexto(ps_confirmar),
+		preguntas = "¿?",
+		fecha = sacarFecha(dtp_fecha),
+		imagen=sacarAvatar(pB_avatar);
+	;
+	Contacto c(usuario, nombre, correo, contraseña, preguntas, fecha, imagen);
+	if (confirmar==contraseña){
+		c.GuardarDatos(newUsuario);
+		//(gcnew Salgado_Eva_Proyecto1::main_app())->Show();
+		this->Hide();
+	}
+	
+}
+
+};
+
+
 }
