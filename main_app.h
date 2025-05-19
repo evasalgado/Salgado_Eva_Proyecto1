@@ -2,6 +2,7 @@
 #include "mensajes.h"
 #include "Contacto.h"
 #include "Form1.h";
+#include "Registro.h"
 namespace Salgado_Eva_Proyecto1 {
 
 	using namespace System;
@@ -105,6 +106,7 @@ namespace Salgado_Eva_Proyecto1 {
 			this->editarPerfilToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->chatsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ordenarAlfabéticamenteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->historialDeChatsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->acercaDeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->créditosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cerrarSesiónToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -114,7 +116,6 @@ namespace Salgado_Eva_Proyecto1 {
 			this->bt_enviar = (gcnew System::Windows::Forms::Button());
 			this->tb_mensaje = (gcnew System::Windows::Forms::TextBox());
 			this->lb_mensajes = (gcnew System::Windows::Forms::ListBox());
-			this->historialDeChatsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->tb_chats->SuspendLayout();
 			this->tb_open->SuspendLayout();
 			this->tb_Closed->SuspendLayout();
@@ -248,6 +249,13 @@ namespace Salgado_Eva_Proyecto1 {
 			this->ordenarAlfabéticamenteToolStripMenuItem->Size = System::Drawing::Size(260, 26);
 			this->ordenarAlfabéticamenteToolStripMenuItem->Text = L"Ordenar Alfabéticamente";
 			// 
+			// historialDeChatsToolStripMenuItem
+			// 
+			this->historialDeChatsToolStripMenuItem->Name = L"historialDeChatsToolStripMenuItem";
+			this->historialDeChatsToolStripMenuItem->Size = System::Drawing::Size(260, 26);
+			this->historialDeChatsToolStripMenuItem->Text = L"Historial de chats";
+			this->historialDeChatsToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::historialDeChatsToolStripMenuItem_Click);
+			// 
 			// acercaDeToolStripMenuItem
 			// 
 			this->acercaDeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->créditosToolStripMenuItem });
@@ -338,12 +346,6 @@ namespace Salgado_Eva_Proyecto1 {
 			this->lb_mensajes->Size = System::Drawing::Size(678, 400);
 			this->lb_mensajes->TabIndex = 10;
 			// 
-			// historialDeChatsToolStripMenuItem
-			// 
-			this->historialDeChatsToolStripMenuItem->Name = L"historialDeChatsToolStripMenuItem";
-			this->historialDeChatsToolStripMenuItem->Size = System::Drawing::Size(260, 26);
-			this->historialDeChatsToolStripMenuItem->Text = L"Historial de chats";
-			// 
 			// main_app
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -371,6 +373,14 @@ namespace Salgado_Eva_Proyecto1 {
 
 		}
 #pragma endregion
+		string sacarTexto(System::Windows::Forms::TextBox^ tb) {
+			System::String^ textBox = tb->Text;
+			string contenidoSTD;
+			for (int i = 0; i < textBox->Length; i++) {
+				contenidoSTD += (char)textBox[i];
+			}
+			return contenidoSTD;
+		}
 		string volverString(System::String^ convertir) {
 			if (convertir == nullptr)
 				return string();
@@ -408,18 +418,22 @@ private: System::Void lb_closed_SelectedIndexChanged(System::Object^ sender, Sys
 }
 private: System::Void bt_enviar_Click(System::Object^ sender, System::EventArgs^ e) {
 	fstream archivo("contactos.amp", ios::in);
+	string user1_std;
+	getline(archivo, user1_std);
 	System::String^ user2 = lb_open->SelectedItem->ToString();
-	System::String^ user1 = archivo //se supone ser el usuario que inició sesión en el programa
-	string mensaje = sacarTexto(textBox1);
-	System::String^ displayText = textBox1->Text;
-	listBox1->Items->Add(displayText);
-	textBox1->Text = " ";
+	System::String^ user1 = gcnew System::String(user1_std.c_str());; //se supone ser el usuario que inició sesión en el programa
+	string mensaje = sacarTexto(tb_mensaje);
+	System::String^ displayText = tb_mensaje->Text;
+	lb_mensajes->Items->Add(displayText);
+	tb_mensaje->Text = " ";
 	
-	System::String^ fileName = user1 + user2 + ".msm";
 	string nuevoFile = volverString(user1 + user2 + ".msm");
 	std::fstream historial(nuevoFile, std::ios::in | std::ios::out | std::ios::app);
 	mensajes msm;
-	msm.guardarHistorial(historial);
+	msm.GuardarMensajes(historial);
+}
+private: System::Void historialDeChatsToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }
