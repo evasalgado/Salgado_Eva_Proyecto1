@@ -181,7 +181,7 @@ namespace Salgado_Eva_Proyecto1{
 		}
 		bool existeTexto(fstream& texto, const string& buscar) {
 			string linea;
-			while (getline(texto, linea)) {
+			while (std::getline(texto, linea)) {
 				if (linea == buscar){
 					return true;
 				}

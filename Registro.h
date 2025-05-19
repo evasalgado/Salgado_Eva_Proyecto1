@@ -357,6 +357,7 @@ private: System::Void bt_registro_Click(System::Object^ sender, System::EventArg
 	Contacto c(usuario, nombre, correo, contraseña, preguntas, fecha, imagen);
 	if (confirmar==contraseña){
 		c.GuardarDatos(newUsuario);
+		MessageBox::Show("guardado existosamente");
 		//(gcnew Salgado_Eva_Proyecto1::main_app())->Show();
 		this->Hide();
 	}

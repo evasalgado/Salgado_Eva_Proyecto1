@@ -418,7 +418,7 @@ private: System::Void lb_closed_SelectedIndexChanged(System::Object^ sender, Sys
 }
 private: System::Void bt_enviar_Click(System::Object^ sender, System::EventArgs^ e) {
 	fstream archivo("contactos.amp", ios::in);
-	string user1_std;
+	string user1_std;//string para identificar el usuario que inició sesión
 	getline(archivo, user1_std);
 	System::String^ user2 = lb_open->SelectedItem->ToString();
 	System::String^ user1 = gcnew System::String(user1_std.c_str());; //se supone ser el usuario que inició sesión en el programa
@@ -433,7 +433,17 @@ private: System::Void bt_enviar_Click(System::Object^ sender, System::EventArgs^
 	msm.GuardarMensajes(historial);
 }
 private: System::Void historialDeChatsToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	fstream archivo("contactos.amp", ios::in);
+	mensajes msm;
+	fstream archivo("contactos.amp", ios::in);
+	string user1_std;
+	getline(archivo, user1_std);
+	System::String^ user2 = lb_open->SelectedItem->ToString();
+	System::String^ user1 = gcnew System::String(user1_std.c_str());;
+	string nuevoFile = volverString(user1 + user2 + ".msm");
+	std::fstream historial(nuevoFile, std::ios::out);
+	msm.CargarMensajes(historial);
+	
 }
 };
 }

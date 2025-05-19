@@ -6,7 +6,7 @@ class mensajes{
 	int tamanio;
 public: 
 	mensajes()  {}
-	void CargarMensajes(fstream& archivo);
+	string CargarMensajes(fstream& archivo);
 	void GuardarMensajes(fstream& archivo);
 };
 
