@@ -20,6 +20,16 @@ namespace Salgado_Eva_Proyecto1 {
 		main_app(void)
 		{
 			InitializeComponent();
+			fstream usuarios("contactos.amp",ios::in);
+			if (!usuarios.is_open()){
+				MessageBox::Show("No se puede abrir el Archivo");
+				return;
+			}
+			string linea;
+			while (std::getline(usuarios, linea)) {
+				System::String^ users = gcnew System::String(linea.c_str());
+				lb_open->Items->Add(users);
+			}
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -59,6 +69,10 @@ namespace Salgado_Eva_Proyecto1 {
 	private: System::Windows::Forms::Button^ bt_enviar;
 	private: System::Windows::Forms::ListBox^ lb_open;
 	private: System::Windows::Forms::ListBox^ lb_closed;
+	private: System::Windows::Forms::ToolStripMenuItem^ agregarToolStripMenuItem;
+	private: System::Windows::Forms::Button^ bt_sticker;
+
+	private: System::Windows::Forms::Button^ bt_multimedia;
 
 
 
@@ -91,6 +105,9 @@ namespace Salgado_Eva_Proyecto1 {
 			this->bt_enviar = (gcnew System::Windows::Forms::Button());
 			this->tb_mensaje = (gcnew System::Windows::Forms::TextBox());
 			this->lb_mensajes = (gcnew System::Windows::Forms::ListBox());
+			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->bt_multimedia = (gcnew System::Windows::Forms::Button());
+			this->bt_sticker = (gcnew System::Windows::Forms::Button());
 			this->tb_chats->SuspendLayout();
 			this->tb_open->SuspendLayout();
 			this->tb_Closed->SuspendLayout();
@@ -172,25 +189,25 @@ namespace Salgado_Eva_Proyecto1 {
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ajustesToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(927, 28);
+			this->menuStrip1->Size = System::Drawing::Size(919, 28);
 			this->menuStrip1->TabIndex = 8;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// ajustesToolStripMenuItem
 			// 
-			this->ajustesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->cuentaToolStripMenuItem,
-					this->cerrarSesiónToolStripMenuItem, this->acercaDeToolStripMenuItem
+			this->ajustesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->agregarToolStripMenuItem,
+					this->cuentaToolStripMenuItem, this->acercaDeToolStripMenuItem, this->cerrarSesiónToolStripMenuItem
 			});
 			this->ajustesToolStripMenuItem->Name = L"ajustesToolStripMenuItem";
-			this->ajustesToolStripMenuItem->Size = System::Drawing::Size(70, 24);
+			this->ajustesToolStripMenuItem->Size = System::Drawing::Size(70, 26);
 			this->ajustesToolStripMenuItem->Text = L"Ajustes";
 			// 
 			// cuentaToolStripMenuItem
 			// 
 			this->cuentaToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->editarPerfilToolStripMenuItem });
 			this->cuentaToolStripMenuItem->Name = L"cuentaToolStripMenuItem";
-			this->cuentaToolStripMenuItem->Size = System::Drawing::Size(179, 26);
+			this->cuentaToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->cuentaToolStripMenuItem->Text = L"Cuenta";
 			// 
 			// editarPerfilToolStripMenuItem
@@ -202,7 +219,7 @@ namespace Salgado_Eva_Proyecto1 {
 			// cerrarSesiónToolStripMenuItem
 			// 
 			this->cerrarSesiónToolStripMenuItem->Name = L"cerrarSesiónToolStripMenuItem";
-			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(179, 26);
+			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->cerrarSesiónToolStripMenuItem->Text = L"Cerrar Sesión";
 			this->cerrarSesiónToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::cerrarSesiónToolStripMenuItem_Click);
 			// 
@@ -210,19 +227,21 @@ namespace Salgado_Eva_Proyecto1 {
 			// 
 			this->acercaDeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->créditosToolStripMenuItem });
 			this->acercaDeToolStripMenuItem->Name = L"acercaDeToolStripMenuItem";
-			this->acercaDeToolStripMenuItem->Size = System::Drawing::Size(179, 26);
+			this->acercaDeToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->acercaDeToolStripMenuItem->Text = L"Acerca de";
 			// 
 			// créditosToolStripMenuItem
 			// 
 			this->créditosToolStripMenuItem->Name = L"créditosToolStripMenuItem";
-			this->créditosToolStripMenuItem->Size = System::Drawing::Size(147, 26);
+			this->créditosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->créditosToolStripMenuItem->Text = L"Créditos";
 			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(189)), static_cast<System::Int32>(static_cast<System::Byte>(230)),
 				static_cast<System::Int32>(static_cast<System::Byte>(226)));
+			this->panel1->Controls->Add(this->bt_sticker);
+			this->panel1->Controls->Add(this->bt_multimedia);
 			this->panel1->Controls->Add(this->bt_enviar);
 			this->panel1->Controls->Add(this->tb_mensaje);
 			this->panel1->Controls->Add(this->lb_mensajes);
@@ -249,10 +268,10 @@ namespace Salgado_Eva_Proyecto1 {
 			this->tb_mensaje->BackColor = System::Drawing::Color::Linen;
 			this->tb_mensaje->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->tb_mensaje->Location = System::Drawing::Point(4, 500);
+			this->tb_mensaje->Location = System::Drawing::Point(125, 500);
 			this->tb_mensaje->Multiline = true;
 			this->tb_mensaje->Name = L"tb_mensaje";
-			this->tb_mensaje->Size = System::Drawing::Size(593, 49);
+			this->tb_mensaje->Size = System::Drawing::Size(472, 49);
 			this->tb_mensaje->TabIndex = 11;
 			// 
 			// lb_mensajes
@@ -268,13 +287,37 @@ namespace Salgado_Eva_Proyecto1 {
 			this->lb_mensajes->Size = System::Drawing::Size(678, 436);
 			this->lb_mensajes->TabIndex = 10;
 			// 
+			// agregarToolStripMenuItem
+			// 
+			this->agregarToolStripMenuItem->Name = L"agregarToolStripMenuItem";
+			this->agregarToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->agregarToolStripMenuItem->Text = L"Agregar";
+			// 
+			// bt_multimedia
+			// 
+			this->bt_multimedia->Location = System::Drawing::Point(4, 500);
+			this->bt_multimedia->Name = L"bt_multimedia";
+			this->bt_multimedia->Size = System::Drawing::Size(59, 49);
+			this->bt_multimedia->TabIndex = 14;
+			this->bt_multimedia->Text = L"Multimedia";
+			this->bt_multimedia->UseVisualStyleBackColor = true;
+			// 
+			// bt_sticker
+			// 
+			this->bt_sticker->Location = System::Drawing::Point(69, 500);
+			this->bt_sticker->Name = L"bt_sticker";
+			this->bt_sticker->Size = System::Drawing::Size(59, 49);
+			this->bt_sticker->TabIndex = 15;
+			this->bt_sticker->Text = L"stickers";
+			this->bt_sticker->UseVisualStyleBackColor = true;
+			// 
 			// main_app
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(172)), static_cast<System::Int32>(static_cast<System::Byte>(204)),
 				static_cast<System::Int32>(static_cast<System::Byte>(106)));
-			this->ClientSize = System::Drawing::Size(927, 620);
+			this->ClientSize = System::Drawing::Size(919, 802);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->tb_chats);
 			this->Controls->Add(this->menuStrip1);
@@ -307,7 +350,7 @@ private: System::Void tb_open_Click(System::Object^ sender, System::EventArgs^ e
 }
 private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	System::String^ usuario;
-	tb_mensaje->Text = lb_open->SelectedItem->ToString();
+	tb_mensaje->Text = lb_open->Text+": ";
 }
 private: System::Void lb_closed_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	System::String^ usuario;
