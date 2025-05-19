@@ -433,16 +433,17 @@ private: System::Void bt_enviar_Click(System::Object^ sender, System::EventArgs^
 	msm.GuardarMensajes(historial);
 }
 private: System::Void historialDeChatsToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	lb_mensajes->Items->Clear();
 	fstream archivo("contactos.amp", ios::in);
 	mensajes msm;
-	fstream archivo("contactos.amp", ios::in);
 	string user1_std;
 	getline(archivo, user1_std);
 	System::String^ user2 = lb_open->SelectedItem->ToString();
 	System::String^ user1 = gcnew System::String(user1_std.c_str());;
 	string nuevoFile = volverString(user1 + user2 + ".msm");
 	std::fstream historial(nuevoFile, std::ios::out);
-	msm.CargarMensajes(historial);
+	System::String^ cargar = gcnew System::String(msm.obtenerMensajes());
+	lb_mensajes->Items->Add(cargar);
 	
 }
 };
