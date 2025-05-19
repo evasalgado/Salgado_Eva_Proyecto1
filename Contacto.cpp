@@ -12,19 +12,19 @@ void Contacto::GuardarDatos(fstream& archivo){
 }
 
 void Contacto::CargarDatos(fstream& archivo){
-	getline(archivo, nombre_user, '\0');
-	getline(archivo, nombre, '\0');
-	getline(archivo, correo, '\0');
-	getline(archivo, contraseña, '\0');
-	getline(archivo, preguntas, '\0');
-	getline(archivo, edad, '\0');
-	getline(archivo, image, '\0');
+	getline(archivo, nombre_user, ';');
+	getline(archivo, nombre, ';');
+	getline(archivo, correo, ';');
+	getline(archivo, contraseña, ';');
+	getline(archivo, preguntas, ';');
+	getline(archivo, edad, ';');
+	getline(archivo, image, ';');
 }
 
 void Contacto::CargarContacto(fstream& archivo){
-	getline(archivo, nombre_user, '\0');
-	getline(archivo, nombre, '\0');
-	getline(archivo, correo, '\0');
+	getline(archivo, nombre_user, ';');
+	getline(archivo, nombre, ';');
+	getline(archivo, correo, ';');
 }
 
 Contacto::Contacto()
@@ -89,6 +89,12 @@ void Contacto::setEdad(const string Edad){
 string Contacto::getImagen() const
 {
 	return image;
+}
+void Contacto::setRespuestas(const string respuestas){
+	this->respuestas = respuestas;
+}
+string Contacto::getRespuestas() const{
+	return respuestas;
 }
 void Contacto::setImagen(const string imagen){
 	image = imagen;

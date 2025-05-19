@@ -26,11 +26,29 @@ namespace Salgado_Eva_Proyecto1 {
 				MessageBox::Show("No se puede abrir el Archivo");
 				return;
 			}
+			string user1_std;
+			getline(usuarios, user1_std);
+			System::String^ userRn = gcnew System::String(user1_std.c_str());
 			string linea;
-			while (std::getline(usuarios, linea)) {
+			while (getline(usuarios, linea)) {
 				System::String^ users = gcnew System::String(linea.c_str());
 				lb_open->Items->Add(users);
+				size_t sep = linea.find(';');
+				if (sep != string::npos) {
+					string nombre = linea.substr(0, sep);
+					string rutaAvatar = linea.substr(sep + 1);
+					System::String^ usuario = gcnew System::String(nombre.c_str());
+					lb_open->Items->Add(usuario);
+
+					if (usuario == userRn) { 
+						System::String^ rutaImg = gcnew System::String(rutaAvatar.c_str());
+						if (System::IO::File::Exists(rutaImg)) {
+							tsm_ajustes->Image = System::Drawing::Image::FromFile(rutaImg);
+						}
+					}
+				}
 			}
+			
 			//
 			//TODO: agregar código de constructor aquí
 			//
@@ -89,8 +107,9 @@ namespace Salgado_Eva_Proyecto1 {
 	private: System::Windows::Forms::PictureBox^ pb_sticker2;
 
 	private: System::Windows::Forms::PictureBox^ pb_sticker1;
+	private: System::Windows::Forms::ToolStripMenuItem^ tsm_ajustes;
 
-	private: System::Windows::Forms::ToolStripMenuItem^ ajustesToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ agregarToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ cuentaToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ editarPerfilToolStripMenuItem;
@@ -145,13 +164,13 @@ namespace Salgado_Eva_Proyecto1 {
 			this->pb_sticker3 = (gcnew System::Windows::Forms::PictureBox());
 			this->pb_sticker2 = (gcnew System::Windows::Forms::PictureBox());
 			this->pb_sticker1 = (gcnew System::Windows::Forms::PictureBox());
-			this->ajustesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->tsm_ajustes = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cuentaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editarPerfilToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->chatsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ordenarAlfabéticamenteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->historialDeChatsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->acercaDeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->créditosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cerrarSesiónToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -386,21 +405,15 @@ namespace Salgado_Eva_Proyecto1 {
 			this->pb_sticker1->TabStop = false;
 			this->pb_sticker1->Click += gcnew System::EventHandler(this, &main_app::pictureBox1_Click);
 			// 
-			// ajustesToolStripMenuItem
+			// tsm_ajustes
 			// 
-			this->ajustesToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
-				this->agregarToolStripMenuItem,
-					this->cuentaToolStripMenuItem, this->acercaDeToolStripMenuItem, this->cerrarSesiónToolStripMenuItem
+			this->tsm_ajustes->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+				this->cuentaToolStripMenuItem,
+					this->agregarToolStripMenuItem, this->acercaDeToolStripMenuItem, this->cerrarSesiónToolStripMenuItem
 			});
-			this->ajustesToolStripMenuItem->Name = L"ajustesToolStripMenuItem";
-			this->ajustesToolStripMenuItem->Size = System::Drawing::Size(70, 24);
-			this->ajustesToolStripMenuItem->Text = L"Ajustes";
-			// 
-			// agregarToolStripMenuItem
-			// 
-			this->agregarToolStripMenuItem->Name = L"agregarToolStripMenuItem";
-			this->agregarToolStripMenuItem->Size = System::Drawing::Size(179, 26);
-			this->agregarToolStripMenuItem->Text = L"Agregar";
+			this->tsm_ajustes->Name = L"tsm_ajustes";
+			this->tsm_ajustes->Size = System::Drawing::Size(70, 24);
+			this->tsm_ajustes->Text = L"Ajustes";
 			// 
 			// cuentaToolStripMenuItem
 			// 
@@ -409,7 +422,7 @@ namespace Salgado_Eva_Proyecto1 {
 					this->chatsToolStripMenuItem
 			});
 			this->cuentaToolStripMenuItem->Name = L"cuentaToolStripMenuItem";
-			this->cuentaToolStripMenuItem->Size = System::Drawing::Size(179, 26);
+			this->cuentaToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->cuentaToolStripMenuItem->Text = L"Cuenta";
 			// 
 			// editarPerfilToolStripMenuItem
@@ -441,11 +454,17 @@ namespace Salgado_Eva_Proyecto1 {
 			this->historialDeChatsToolStripMenuItem->Text = L"Historial de chats";
 			this->historialDeChatsToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::historialDeChatsToolStripMenuItem_Click);
 			// 
+			// agregarToolStripMenuItem
+			// 
+			this->agregarToolStripMenuItem->Name = L"agregarToolStripMenuItem";
+			this->agregarToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->agregarToolStripMenuItem->Text = L"Agregar";
+			// 
 			// acercaDeToolStripMenuItem
 			// 
 			this->acercaDeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->créditosToolStripMenuItem });
 			this->acercaDeToolStripMenuItem->Name = L"acercaDeToolStripMenuItem";
-			this->acercaDeToolStripMenuItem->Size = System::Drawing::Size(179, 26);
+			this->acercaDeToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->acercaDeToolStripMenuItem->Text = L"Acerca de";
 			// 
 			// créditosToolStripMenuItem
@@ -457,14 +476,14 @@ namespace Salgado_Eva_Proyecto1 {
 			// cerrarSesiónToolStripMenuItem
 			// 
 			this->cerrarSesiónToolStripMenuItem->Name = L"cerrarSesiónToolStripMenuItem";
-			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(179, 26);
+			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->cerrarSesiónToolStripMenuItem->Text = L"Cerrar Sesión";
 			this->cerrarSesiónToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::cerrarSesiónToolStripMenuItem_Click);
 			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ajustesToolStripMenuItem });
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->tsm_ajustes });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Size = System::Drawing::Size(919, 28);

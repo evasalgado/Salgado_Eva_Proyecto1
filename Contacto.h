@@ -8,6 +8,7 @@ using namespace std;
 		 correo,
 		 contraseña,
 		 preguntas,
+		 respuestas, 
 		 edad,
 		 image;
  public: 
@@ -15,7 +16,7 @@ using namespace std;
 	 Contacto(string nombre_user, string nombre, string correo,
 		 string contraseña, string preguntas, string edad, string imagen)
 		 : nombre_user(nombre_user), nombre(nombre), correo(correo),
-		 contraseña(contraseña), preguntas(preguntas), edad(edad), image(imagen) {}
+		 contraseña(contraseña), preguntas(preguntas), respuestas(respuestas), edad(edad), image(imagen) {}
 	 string getNombre_User() const;
 	 void setNombre_User(const string nombre_user);
 	 string getNombre() const;
@@ -29,6 +30,8 @@ using namespace std;
 	 string getEdad() const;
 	 void setEdad(const string Edad);
 	 string getImagen() const;
+	 void setRespuestas(const string respuestas);
+	 string getRespuestas() const;
 	 void setImagen(const string imagen);
 	 void GuardarDatos(fstream& archivo);
 	 void CargarDatos(fstream& archivo);
