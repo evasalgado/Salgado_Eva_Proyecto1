@@ -53,30 +53,51 @@ namespace Salgado_Eva_Proyecto1 {
 	private: System::Windows::Forms::TabControl^ tb_chats;
 	private: System::Windows::Forms::TabPage^ tb_open;
 	private: System::Windows::Forms::TabPage^ tb_Closed;
-	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 
-	private: System::Windows::Forms::ToolStripMenuItem^ ajustesToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ cuentaToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ editarPerfilToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ cerrarSesiónToolStripMenuItem;
+
+
+
+
+
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::TextBox^ tb_mensaje;
 	private: System::Windows::Forms::ListBox^ lb_mensajes;
 
 
 
-	private: System::Windows::Forms::ToolStripMenuItem^ acercaDeToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ créditosToolStripMenuItem;
+
+
 	private: System::Windows::Forms::Button^ bt_enviar;
 	private: System::Windows::Forms::ListBox^ lb_open;
 	private: System::Windows::Forms::ListBox^ lb_closed;
-	private: System::Windows::Forms::ToolStripMenuItem^ agregarToolStripMenuItem;
-	private: System::Windows::Forms::Button^ bt_sticker;
+
+
 
 	private: System::Windows::Forms::Button^ bt_multimedia;
+
+
+
+	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::PictureBox^ pictureBox6;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
+	private: System::Windows::Forms::PictureBox^ pictureBox4;
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::ToolStripMenuItem^ ajustesToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ agregarToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ cuentaToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ editarPerfilToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ chatsToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ordenarAlfabéticamenteToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ historialDeChatsToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ acercaDeToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ créditosToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ cerrarSesiónToolStripMenuItem;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ImageList^ imageList1;
+
+	private: System::ComponentModel::IContainer^ components;
 
 
 
@@ -85,7 +106,7 @@ namespace Salgado_Eva_Proyecto1 {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -94,12 +115,18 @@ namespace Salgado_Eva_Proyecto1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->tb_chats = (gcnew System::Windows::Forms::TabControl());
 			this->tb_open = (gcnew System::Windows::Forms::TabPage());
 			this->lb_open = (gcnew System::Windows::Forms::ListBox());
 			this->tb_Closed = (gcnew System::Windows::Forms::TabPage());
 			this->lb_closed = (gcnew System::Windows::Forms::ListBox());
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->bt_multimedia = (gcnew System::Windows::Forms::Button());
+			this->bt_enviar = (gcnew System::Windows::Forms::Button());
+			this->tb_mensaje = (gcnew System::Windows::Forms::TextBox());
+			this->lb_mensajes = (gcnew System::Windows::Forms::ListBox());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->ajustesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cuentaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -110,17 +137,26 @@ namespace Salgado_Eva_Proyecto1 {
 			this->acercaDeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->créditosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cerrarSesiónToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->bt_sticker = (gcnew System::Windows::Forms::Button());
-			this->bt_multimedia = (gcnew System::Windows::Forms::Button());
-			this->bt_enviar = (gcnew System::Windows::Forms::Button());
-			this->tb_mensaje = (gcnew System::Windows::Forms::TextBox());
-			this->lb_mensajes = (gcnew System::Windows::Forms::ListBox());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->tb_chats->SuspendLayout();
 			this->tb_open->SuspendLayout();
 			this->tb_Closed->SuspendLayout();
-			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
+			this->panel2->SuspendLayout();
+			this->menuStrip1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// tb_chats
@@ -132,7 +168,7 @@ namespace Salgado_Eva_Proyecto1 {
 			this->tb_chats->Location = System::Drawing::Point(12, 39);
 			this->tb_chats->Name = L"tb_chats";
 			this->tb_chats->SelectedIndex = 0;
-			this->tb_chats->Size = System::Drawing::Size(200, 569);
+			this->tb_chats->Size = System::Drawing::Size(200, 599);
 			this->tb_chats->TabIndex = 7;
 			// 
 			// tb_open
@@ -144,7 +180,7 @@ namespace Salgado_Eva_Proyecto1 {
 			this->tb_open->Location = System::Drawing::Point(4, 30);
 			this->tb_open->Name = L"tb_open";
 			this->tb_open->Padding = System::Windows::Forms::Padding(3);
-			this->tb_open->Size = System::Drawing::Size(192, 535);
+			this->tb_open->Size = System::Drawing::Size(192, 565);
 			this->tb_open->TabIndex = 0;
 			this->tb_open->Text = L"Open";
 			this->tb_open->Click += gcnew System::EventHandler(this, &main_app::tb_open_Click);
@@ -157,9 +193,9 @@ namespace Salgado_Eva_Proyecto1 {
 			this->lb_open->ForeColor = System::Drawing::Color::DarkGreen;
 			this->lb_open->FormattingEnabled = true;
 			this->lb_open->ItemHeight = 41;
-			this->lb_open->Location = System::Drawing::Point(0, 0);
+			this->lb_open->Location = System::Drawing::Point(3, 6);
 			this->lb_open->Name = L"lb_open";
-			this->lb_open->Size = System::Drawing::Size(192, 537);
+			this->lb_open->Size = System::Drawing::Size(189, 537);
 			this->lb_open->TabIndex = 0;
 			this->lb_open->SelectedIndexChanged += gcnew System::EventHandler(this, &main_app::listBox1_SelectedIndexChanged);
 			// 
@@ -173,7 +209,7 @@ namespace Salgado_Eva_Proyecto1 {
 			this->tb_Closed->Location = System::Drawing::Point(4, 30);
 			this->tb_Closed->Name = L"tb_Closed";
 			this->tb_Closed->Padding = System::Windows::Forms::Padding(3);
-			this->tb_Closed->Size = System::Drawing::Size(192, 535);
+			this->tb_Closed->Size = System::Drawing::Size(192, 565);
 			this->tb_Closed->TabIndex = 1;
 			this->tb_Closed->Text = L"Closed";
 			// 
@@ -191,15 +227,79 @@ namespace Salgado_Eva_Proyecto1 {
 			this->lb_closed->TabIndex = 0;
 			this->lb_closed->SelectedIndexChanged += gcnew System::EventHandler(this, &main_app::lb_closed_SelectedIndexChanged);
 			// 
-			// menuStrip1
+			// panel1
 			// 
-			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ajustesToolStripMenuItem });
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(919, 28);
-			this->menuStrip1->TabIndex = 8;
-			this->menuStrip1->Text = L"menuStrip1";
+			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(189)), static_cast<System::Int32>(static_cast<System::Byte>(230)),
+				static_cast<System::Int32>(static_cast<System::Byte>(226)));
+			this->panel1->Controls->Add(this->bt_multimedia);
+			this->panel1->Controls->Add(this->bt_enviar);
+			this->panel1->Controls->Add(this->tb_mensaje);
+			this->panel1->Controls->Add(this->lb_mensajes);
+			this->panel1->Location = System::Drawing::Point(237, 39);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(678, 522);
+			this->panel1->TabIndex = 9;
+			// 
+			// bt_multimedia
+			// 
+			this->bt_multimedia->Location = System::Drawing::Point(4, 458);
+			this->bt_multimedia->Name = L"bt_multimedia";
+			this->bt_multimedia->Size = System::Drawing::Size(59, 49);
+			this->bt_multimedia->TabIndex = 14;
+			this->bt_multimedia->Text = L"Multimedia";
+			this->bt_multimedia->UseVisualStyleBackColor = true;
+			// 
+			// bt_enviar
+			// 
+			this->bt_enviar->BackColor = System::Drawing::Color::Cornsilk;
+			this->bt_enviar->Font = (gcnew System::Drawing::Font(L"MV Boli", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->bt_enviar->ForeColor = System::Drawing::Color::DarkSlateGray;
+			this->bt_enviar->Location = System::Drawing::Point(599, 458);
+			this->bt_enviar->Name = L"bt_enviar";
+			this->bt_enviar->Size = System::Drawing::Size(71, 49);
+			this->bt_enviar->TabIndex = 13;
+			this->bt_enviar->Text = L">";
+			this->bt_enviar->UseVisualStyleBackColor = false;
+			this->bt_enviar->Click += gcnew System::EventHandler(this, &main_app::bt_enviar_Click);
+			// 
+			// tb_mensaje
+			// 
+			this->tb_mensaje->BackColor = System::Drawing::Color::Linen;
+			this->tb_mensaje->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tb_mensaje->Location = System::Drawing::Point(69, 458);
+			this->tb_mensaje->Multiline = true;
+			this->tb_mensaje->Name = L"tb_mensaje";
+			this->tb_mensaje->Size = System::Drawing::Size(529, 49);
+			this->tb_mensaje->TabIndex = 11;
+			// 
+			// lb_mensajes
+			// 
+			this->lb_mensajes->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(217)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
+				static_cast<System::Int32>(static_cast<System::Byte>(193)));
+			this->lb_mensajes->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lb_mensajes->FormattingEnabled = true;
+			this->lb_mensajes->ItemHeight = 36;
+			this->lb_mensajes->Location = System::Drawing::Point(4, 36);
+			this->lb_mensajes->Name = L"lb_mensajes";
+			this->lb_mensajes->Size = System::Drawing::Size(678, 400);
+			this->lb_mensajes->TabIndex = 10;
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::Color::OliveDrab;
+			this->panel2->Controls->Add(this->pictureBox6);
+			this->panel2->Controls->Add(this->pictureBox5);
+			this->panel2->Controls->Add(this->pictureBox4);
+			this->panel2->Controls->Add(this->pictureBox3);
+			this->panel2->Controls->Add(this->pictureBox2);
+			this->panel2->Controls->Add(this->pictureBox1);
+			this->panel2->Location = System::Drawing::Point(237, 568);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(678, 100);
+			this->panel2->TabIndex = 10;
 			// 
 			// ajustesToolStripMenuItem
 			// 
@@ -214,7 +314,7 @@ namespace Salgado_Eva_Proyecto1 {
 			// agregarToolStripMenuItem
 			// 
 			this->agregarToolStripMenuItem->Name = L"agregarToolStripMenuItem";
-			this->agregarToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->agregarToolStripMenuItem->Size = System::Drawing::Size(179, 26);
 			this->agregarToolStripMenuItem->Text = L"Agregar";
 			// 
 			// cuentaToolStripMenuItem
@@ -224,13 +324,13 @@ namespace Salgado_Eva_Proyecto1 {
 					this->chatsToolStripMenuItem
 			});
 			this->cuentaToolStripMenuItem->Name = L"cuentaToolStripMenuItem";
-			this->cuentaToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->cuentaToolStripMenuItem->Size = System::Drawing::Size(179, 26);
 			this->cuentaToolStripMenuItem->Text = L"Cuenta";
 			// 
 			// editarPerfilToolStripMenuItem
 			// 
 			this->editarPerfilToolStripMenuItem->Name = L"editarPerfilToolStripMenuItem";
-			this->editarPerfilToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->editarPerfilToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->editarPerfilToolStripMenuItem->Text = L"Editar perfil";
 			// 
 			// chatsToolStripMenuItem
@@ -240,7 +340,7 @@ namespace Salgado_Eva_Proyecto1 {
 					this->historialDeChatsToolStripMenuItem
 			});
 			this->chatsToolStripMenuItem->Name = L"chatsToolStripMenuItem";
-			this->chatsToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->chatsToolStripMenuItem->Size = System::Drawing::Size(170, 26);
 			this->chatsToolStripMenuItem->Text = L"Chats";
 			// 
 			// ordenarAlfabéticamenteToolStripMenuItem
@@ -260,7 +360,7 @@ namespace Salgado_Eva_Proyecto1 {
 			// 
 			this->acercaDeToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->créditosToolStripMenuItem });
 			this->acercaDeToolStripMenuItem->Name = L"acercaDeToolStripMenuItem";
-			this->acercaDeToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->acercaDeToolStripMenuItem->Size = System::Drawing::Size(179, 26);
 			this->acercaDeToolStripMenuItem->Text = L"Acerca de";
 			// 
 			// créditosToolStripMenuItem
@@ -272,79 +372,74 @@ namespace Salgado_Eva_Proyecto1 {
 			// cerrarSesiónToolStripMenuItem
 			// 
 			this->cerrarSesiónToolStripMenuItem->Name = L"cerrarSesiónToolStripMenuItem";
-			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(179, 26);
 			this->cerrarSesiónToolStripMenuItem->Text = L"Cerrar Sesión";
 			this->cerrarSesiónToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::cerrarSesiónToolStripMenuItem_Click);
 			// 
-			// panel1
+			// menuStrip1
 			// 
-			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(189)), static_cast<System::Int32>(static_cast<System::Byte>(230)),
-				static_cast<System::Int32>(static_cast<System::Byte>(226)));
-			this->panel1->Controls->Add(this->bt_sticker);
-			this->panel1->Controls->Add(this->bt_multimedia);
-			this->panel1->Controls->Add(this->bt_enviar);
-			this->panel1->Controls->Add(this->tb_mensaje);
-			this->panel1->Controls->Add(this->lb_mensajes);
-			this->panel1->Location = System::Drawing::Point(237, 39);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(678, 569);
-			this->panel1->TabIndex = 9;
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ajustesToolStripMenuItem });
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(919, 28);
+			this->menuStrip1->TabIndex = 8;
+			this->menuStrip1->Text = L"menuStrip1";
+			this->menuStrip1->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &main_app::menuStrip1_ItemClicked);
 			// 
-			// bt_sticker
+			// imageList1
 			// 
-			this->bt_sticker->Location = System::Drawing::Point(69, 500);
-			this->bt_sticker->Name = L"bt_sticker";
-			this->bt_sticker->Size = System::Drawing::Size(59, 49);
-			this->bt_sticker->TabIndex = 15;
-			this->bt_sticker->Text = L"stickers";
-			this->bt_sticker->UseVisualStyleBackColor = true;
+			this->imageList1->ColorDepth = System::Windows::Forms::ColorDepth::Depth8Bit;
+			this->imageList1->ImageSize = System::Drawing::Size(16, 16);
+			this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
 			// 
-			// bt_multimedia
+			// pictureBox1
 			// 
-			this->bt_multimedia->Location = System::Drawing::Point(4, 500);
-			this->bt_multimedia->Name = L"bt_multimedia";
-			this->bt_multimedia->Size = System::Drawing::Size(59, 49);
-			this->bt_multimedia->TabIndex = 14;
-			this->bt_multimedia->Text = L"Multimedia";
-			this->bt_multimedia->UseVisualStyleBackColor = true;
+			this->pictureBox1->Location = System::Drawing::Point(17, 16);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(78, 61);
+			this->pictureBox1->TabIndex = 0;
+			this->pictureBox1->TabStop = false;
 			// 
-			// bt_enviar
+			// pictureBox2
 			// 
-			this->bt_enviar->BackColor = System::Drawing::Color::Cornsilk;
-			this->bt_enviar->Font = (gcnew System::Drawing::Font(L"MV Boli", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->bt_enviar->ForeColor = System::Drawing::Color::DarkSlateGray;
-			this->bt_enviar->Location = System::Drawing::Point(604, 500);
-			this->bt_enviar->Name = L"bt_enviar";
-			this->bt_enviar->Size = System::Drawing::Size(71, 49);
-			this->bt_enviar->TabIndex = 13;
-			this->bt_enviar->Text = L">";
-			this->bt_enviar->UseVisualStyleBackColor = false;
-			this->bt_enviar->Click += gcnew System::EventHandler(this, &main_app::bt_enviar_Click);
+			this->pictureBox2->Location = System::Drawing::Point(126, 16);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(78, 61);
+			this->pictureBox2->TabIndex = 1;
+			this->pictureBox2->TabStop = false;
 			// 
-			// tb_mensaje
+			// pictureBox3
 			// 
-			this->tb_mensaje->BackColor = System::Drawing::Color::Linen;
-			this->tb_mensaje->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->tb_mensaje->Location = System::Drawing::Point(125, 500);
-			this->tb_mensaje->Multiline = true;
-			this->tb_mensaje->Name = L"tb_mensaje";
-			this->tb_mensaje->Size = System::Drawing::Size(472, 49);
-			this->tb_mensaje->TabIndex = 11;
+			this->pictureBox3->Location = System::Drawing::Point(234, 16);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(78, 61);
+			this->pictureBox3->TabIndex = 2;
+			this->pictureBox3->TabStop = false;
 			// 
-			// lb_mensajes
+			// pictureBox4
 			// 
-			this->lb_mensajes->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(217)), static_cast<System::Int32>(static_cast<System::Byte>(219)),
-				static_cast<System::Int32>(static_cast<System::Byte>(193)));
-			this->lb_mensajes->Font = (gcnew System::Drawing::Font(L"Myanmar Text", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lb_mensajes->FormattingEnabled = true;
-			this->lb_mensajes->ItemHeight = 36;
-			this->lb_mensajes->Location = System::Drawing::Point(4, 36);
-			this->lb_mensajes->Name = L"lb_mensajes";
-			this->lb_mensajes->Size = System::Drawing::Size(678, 400);
-			this->lb_mensajes->TabIndex = 10;
+			this->pictureBox4->Location = System::Drawing::Point(344, 16);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(78, 61);
+			this->pictureBox4->TabIndex = 3;
+			this->pictureBox4->TabStop = false;
+			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->Location = System::Drawing::Point(455, 16);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(78, 61);
+			this->pictureBox5->TabIndex = 4;
+			this->pictureBox5->TabStop = false;
+			// 
+			// pictureBox6
+			// 
+			this->pictureBox6->Location = System::Drawing::Point(556, 16);
+			this->pictureBox6->Name = L"pictureBox6";
+			this->pictureBox6->Size = System::Drawing::Size(78, 61);
+			this->pictureBox6->TabIndex = 5;
+			this->pictureBox6->TabStop = false;
 			// 
 			// main_app
 			// 
@@ -353,6 +448,7 @@ namespace Salgado_Eva_Proyecto1 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(172)), static_cast<System::Int32>(static_cast<System::Byte>(204)),
 				static_cast<System::Int32>(static_cast<System::Byte>(106)));
 			this->ClientSize = System::Drawing::Size(919, 802);
+			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->tb_chats);
 			this->Controls->Add(this->menuStrip1);
@@ -364,10 +460,17 @@ namespace Salgado_Eva_Proyecto1 {
 			this->tb_chats->ResumeLayout(false);
 			this->tb_open->ResumeLayout(false);
 			this->tb_Closed->ResumeLayout(false);
-			this->menuStrip1->ResumeLayout(false);
-			this->menuStrip1->PerformLayout();
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
+			this->panel2->ResumeLayout(false);
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -416,7 +519,7 @@ private: System::Void lb_closed_SelectedIndexChanged(System::Object^ sender, Sys
 		tb_mensaje->Text=user+": "; 
 	}
 }
-private: System::Void bt_enviar_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void bt_enviar_Click(System::Object^ sender, System::EventArgs^ e) { //todo lo del chat se debe actualizar cuando se envie nuevo mensaje
 	fstream archivo("contactos.amp", ios::in);
 	string user1_std;//string para identificar el usuario que inició sesión
 	getline(archivo, user1_std);
@@ -432,7 +535,7 @@ private: System::Void bt_enviar_Click(System::Object^ sender, System::EventArgs^
 	mensajes msm;
 	msm.GuardarMensajes(historial);
 }
-private: System::Void historialDeChatsToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void historialDeChatsToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {//mostrar el historial de chat cuando se seleccione
 	lb_mensajes->Items->Clear();
 	fstream archivo("contactos.amp", ios::in);
 	mensajes msm;
@@ -445,6 +548,9 @@ private: System::Void historialDeChatsToolStripMenuItem_Click(System::Object^ se
 	System::String^ cargar = gcnew System::String(msm.obtenerMensajes());
 	lb_mensajes->Items->Add(cargar);
 	
+}
+private: System::Void menuStrip1_ItemClicked(System::Object^ sender, System::Windows::Forms::ToolStripItemClickedEventArgs^ e) {
+
 }
 };
 }
