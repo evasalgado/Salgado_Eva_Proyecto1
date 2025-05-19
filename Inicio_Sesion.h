@@ -3,6 +3,9 @@
 #include "Contacto.h"
 #include "main_app.h"
 #include "Form1.h"
+#include <string>
+#include <fstream>
+#include <iostream> 
 namespace Salgado_Eva_Proyecto1{
 
 	using namespace System;

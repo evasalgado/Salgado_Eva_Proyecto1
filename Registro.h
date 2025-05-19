@@ -1,9 +1,12 @@
 #pragma once
-#include "Inicio_Sesion.h"
-#include "main_app.h"
+
 #include <string>
+#include <fstream>
+#include <iostream> 
+
+#include "Inicio_Sesion.h"
 #include "Contacto.h"
-#include "Form1.h";
+#include "main_app.h"
 namespace Salgado_Eva_Proyecto1 {
 
 	using namespace System;
@@ -415,8 +418,9 @@ private: System::Void bt_registro_Click(System::Object^ sender, System::EventArg
 	if (confirmar==contraseña){
 		c.GuardarDatos(newUsuario);
 		MessageBox::Show("guardado existosamente");
-		//(gcnew Salgado_Eva_Proyecto1::main_app())->Show();
+		//main_app().Show();
 		this->Hide();
+
 	}
 	
 }

@@ -3,6 +3,9 @@
 #include "Contacto.h"
 #include "Form1.h";
 #include "Registro.h"
+#include <string>
+#include <fstream>
+#include <iostream> 
 namespace Salgado_Eva_Proyecto1 {
 
 	using namespace System;
@@ -786,9 +789,7 @@ private: System::Void ordenarPorRecientesToolStripMenuItem_Click(System::Object^
 	cargarContactosEnListView(lv_open);
 	cargarContactosEnListView(lv_closed);
 }
-private: System::Void lb_mensajes_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	
-}
+
 private: System::Void lb_mensajes_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 	mensajes msm;
 	int indice = lb_mensajes->SelectedIndex;

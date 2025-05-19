@@ -8,15 +8,20 @@
 #include "Registro.h"
 #include "Inicio_Sesion.h"
 #include "main_app.h"
+#include "Contacto.h"
+#include "mensajes.h"
+#include <string>
+#include <fstream>
+#include <iostream> 
 
 namespace CppCLRWinFormsProject {
-
   using namespace System;
   using namespace System::ComponentModel;
   using namespace System::Collections;
   using namespace System::Windows::Forms;
   using namespace System::Data;
   using namespace System::Drawing;
+  
 
   /// <summary>
   /// Summary for Form1
@@ -47,7 +52,9 @@ namespace CppCLRWinFormsProject {
         delete components;
       }
     }
-  private: System::Windows::Forms::Panel^ panel1;
+  private: System::Windows::Forms::Panel^ pn_inicio;
+  protected:
+
   private: System::Windows::Forms::Button^ bt_iniciosesion;
   protected:
 
@@ -84,39 +91,79 @@ namespace CppCLRWinFormsProject {
     {
         this->components = (gcnew System::ComponentModel::Container());
         System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
-        this->panel1 = (gcnew System::Windows::Forms::Panel());
+        this->pn_inicio = (gcnew System::Windows::Forms::Panel());
+        this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+        this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+        this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+        this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
         this->bt_registrar = (gcnew System::Windows::Forms::Button());
         this->bt_iniciosesion = (gcnew System::Windows::Forms::Button());
         this->label15 = (gcnew System::Windows::Forms::Label());
         this->label1 = (gcnew System::Windows::Forms::Label());
         this->imageList1 = (gcnew System::Windows::Forms::ImageList(this->components));
-        this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-        this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
-        this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-        this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
-        this->panel1->SuspendLayout();
-        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
-        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+        this->pn_inicio->SuspendLayout();
         (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
         this->SuspendLayout();
         // 
-        // panel1
+        // pn_inicio
         // 
-        this->panel1->BackColor = System::Drawing::Color::CadetBlue;
-        this->panel1->Controls->Add(this->pictureBox4);
-        this->panel1->Controls->Add(this->pictureBox3);
-        this->panel1->Controls->Add(this->pictureBox2);
-        this->panel1->Controls->Add(this->pictureBox1);
-        this->panel1->Controls->Add(this->bt_registrar);
-        this->panel1->Controls->Add(this->bt_iniciosesion);
-        this->panel1->Controls->Add(this->label15);
-        this->panel1->Controls->Add(this->label1);
-        this->panel1->Dock = System::Windows::Forms::DockStyle::Left;
-        this->panel1->Location = System::Drawing::Point(0, 0);
-        this->panel1->Name = L"panel1";
-        this->panel1->Size = System::Drawing::Size(1083, 711);
-        this->panel1->TabIndex = 2;
+        this->pn_inicio->BackColor = System::Drawing::Color::CadetBlue;
+        this->pn_inicio->Controls->Add(this->pictureBox4);
+        this->pn_inicio->Controls->Add(this->pictureBox3);
+        this->pn_inicio->Controls->Add(this->pictureBox2);
+        this->pn_inicio->Controls->Add(this->pictureBox1);
+        this->pn_inicio->Controls->Add(this->bt_registrar);
+        this->pn_inicio->Controls->Add(this->bt_iniciosesion);
+        this->pn_inicio->Controls->Add(this->label15);
+        this->pn_inicio->Controls->Add(this->label1);
+        this->pn_inicio->Dock = System::Windows::Forms::DockStyle::Left;
+        this->pn_inicio->Location = System::Drawing::Point(0, 0);
+        this->pn_inicio->Name = L"pn_inicio";
+        this->pn_inicio->Size = System::Drawing::Size(1083, 711);
+        this->pn_inicio->TabIndex = 2;
+        // 
+        // pictureBox4
+        // 
+        this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
+        this->pictureBox4->Location = System::Drawing::Point(888, 508);
+        this->pictureBox4->Name = L"pictureBox4";
+        this->pictureBox4->Size = System::Drawing::Size(168, 162);
+        this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
+        this->pictureBox4->TabIndex = 11;
+        this->pictureBox4->TabStop = false;
+        // 
+        // pictureBox3
+        // 
+        this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
+        this->pictureBox3->Location = System::Drawing::Point(30, 525);
+        this->pictureBox3->Name = L"pictureBox3";
+        this->pictureBox3->Size = System::Drawing::Size(168, 162);
+        this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
+        this->pictureBox3->TabIndex = 10;
+        this->pictureBox3->TabStop = false;
+        // 
+        // pictureBox2
+        // 
+        this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
+        this->pictureBox2->Location = System::Drawing::Point(888, 12);
+        this->pictureBox2->Name = L"pictureBox2";
+        this->pictureBox2->Size = System::Drawing::Size(168, 162);
+        this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
+        this->pictureBox2->TabIndex = 9;
+        this->pictureBox2->TabStop = false;
+        // 
+        // pictureBox1
+        // 
+        this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+        this->pictureBox1->Location = System::Drawing::Point(30, 23);
+        this->pictureBox1->Name = L"pictureBox1";
+        this->pictureBox1->Size = System::Drawing::Size(168, 162);
+        this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
+        this->pictureBox1->TabIndex = 8;
+        this->pictureBox1->TabStop = false;
         // 
         // bt_registrar
         // 
@@ -130,7 +177,7 @@ namespace CppCLRWinFormsProject {
         this->bt_registrar->TabIndex = 7;
         this->bt_registrar->Text = L"Registrarse";
         this->bt_registrar->UseVisualStyleBackColor = false;
-        this->bt_registrar->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
+        this->bt_registrar->Click += gcnew System::EventHandler(this, &Form1::bt_registro_Click);
         // 
         // bt_iniciosesion
         // 
@@ -177,79 +224,37 @@ namespace CppCLRWinFormsProject {
         this->imageList1->ImageSize = System::Drawing::Size(16, 16);
         this->imageList1->TransparentColor = System::Drawing::Color::Transparent;
         // 
-        // pictureBox1
-        // 
-        this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-        this->pictureBox1->Location = System::Drawing::Point(30, 23);
-        this->pictureBox1->Name = L"pictureBox1";
-        this->pictureBox1->Size = System::Drawing::Size(168, 162);
-        this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
-        this->pictureBox1->TabIndex = 8;
-        this->pictureBox1->TabStop = false;
-        // 
-        // pictureBox2
-        // 
-        this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-        this->pictureBox2->Location = System::Drawing::Point(888, 12);
-        this->pictureBox2->Name = L"pictureBox2";
-        this->pictureBox2->Size = System::Drawing::Size(168, 162);
-        this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
-        this->pictureBox2->TabIndex = 9;
-        this->pictureBox2->TabStop = false;
-        // 
-        // pictureBox3
-        // 
-        this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-        this->pictureBox3->Location = System::Drawing::Point(30, 525);
-        this->pictureBox3->Name = L"pictureBox3";
-        this->pictureBox3->Size = System::Drawing::Size(168, 162);
-        this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
-        this->pictureBox3->TabIndex = 10;
-        this->pictureBox3->TabStop = false;
-        // 
-        // pictureBox4
-        // 
-        this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
-        this->pictureBox4->Location = System::Drawing::Point(888, 508);
-        this->pictureBox4->Name = L"pictureBox4";
-        this->pictureBox4->Size = System::Drawing::Size(168, 162);
-        this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::AutoSize;
-        this->pictureBox4->TabIndex = 11;
-        this->pictureBox4->TabStop = false;
-        // 
         // Form1
         // 
         this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
         this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
         this->ClientSize = System::Drawing::Size(1068, 711);
-        this->Controls->Add(this->panel1);
+        this->Controls->Add(this->pn_inicio);
         this->Margin = System::Windows::Forms::Padding(4);
         this->Name = L"Form1";
         this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
         this->Text = L"Amphy chat";
-        this->panel1->ResumeLayout(false);
-        this->panel1->PerformLayout();
-        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
-        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+        this->pn_inicio->ResumeLayout(false);
+        this->pn_inicio->PerformLayout();
         (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+        (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
         this->ResumeLayout(false);
 
     }
 #pragma endregion
-
    // You can call the functions at a button click. If you prefer, 
     // you can call them by clicking a menu item.
 
 
   private: System::Void bt_comenzar_Click(System::Object^ sender, System::EventArgs^ e) {
       this->Hide();
-      (gcnew Salgado_Eva_Proyecto1::Inicio_Sesion())->Show();
+      
 
   }
-private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-    this -> Hide();
-    (gcnew Salgado_Eva_Proyecto1::Registro())->Show();
+private: System::Void bt_registro_Click(System::Object^ sender, System::EventArgs^ e) {
+    MessageBox::Show("¡Registro exitoso!", "Registro", MessageBoxButtons::OK, MessageBoxIcon::Information);
 }
 private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
 }

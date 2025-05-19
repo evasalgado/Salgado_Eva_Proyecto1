@@ -9,6 +9,7 @@ using namespace System;
 
 #include "Form1.h"
 #include "main_app.h"
+#include "Registro.h"
 using namespace System::Windows::Forms;
 
 [STAThread]
@@ -16,6 +17,6 @@ int main()
 {
   Application::EnableVisualStyles();
   Application::SetCompatibleTextRenderingDefault(false);
-  Application::Run(gcnew CppCLRWinFormsProject::Form1());
+  Application::Run(gcnew Salgado_Eva_Proyecto1::Registro);
   return 0;
 }

@@ -41,7 +41,7 @@ void Contacto::OrdenarAlfabeto(fstream& archivo){//ordenar alfabéticamente usand
 		getline(archivo, respuestas) &&
 		getline(archivo, edad) &&
 		getline(archivo, image)) {
-		contactos.push_back(Contacto(nombre_user, nombre, correo, contraseña, preguntas, edad, image));
+		contactos.push_back(Contacto(nombre_user, nombre, correo, contraseña, preguntas, respuestas, edad, image));
 		contactos.back().setRespuestas(respuestas);
 	}
 	int n = contactos.size();
