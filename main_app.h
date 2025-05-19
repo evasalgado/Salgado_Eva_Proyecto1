@@ -111,7 +111,7 @@ namespace Salgado_Eva_Proyecto1 {
 	private: System::Windows::Forms::ToolStripMenuItem^ tsm_ajustes;
 
 
-	private: System::Windows::Forms::ToolStripMenuItem^ agregarToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ cuentaToolStripMenuItem;
 
 	private: System::Windows::Forms::ToolStripMenuItem^ chatsToolStripMenuItem;
@@ -151,6 +151,7 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(main_app::typeid));
 			this->tb_chats = (gcnew System::Windows::Forms::TabControl());
 			this->tb_open = (gcnew System::Windows::Forms::TabPage());
 			this->lv_open = (gcnew System::Windows::Forms::ListView());
@@ -177,7 +178,6 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 			this->ordenarAlfabéticamenteToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ordenarPorRecientesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->historialDeChatsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->acercaDeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->créditosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cerrarSesiónToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -359,6 +359,7 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 			// 
 			// pb_sticker6
 			// 
+			this->pb_sticker6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pb_sticker6.Image")));
 			this->pb_sticker6->Location = System::Drawing::Point(556, 16);
 			this->pb_sticker6->Name = L"pb_sticker6";
 			this->pb_sticker6->Size = System::Drawing::Size(78, 61);
@@ -367,6 +368,7 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 			// 
 			// pb_sticker5
 			// 
+			this->pb_sticker5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pb_sticker5.Image")));
 			this->pb_sticker5->Location = System::Drawing::Point(455, 16);
 			this->pb_sticker5->Name = L"pb_sticker5";
 			this->pb_sticker5->Size = System::Drawing::Size(78, 61);
@@ -375,6 +377,7 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 			// 
 			// pb_sticker4
 			// 
+			this->pb_sticker4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pb_sticker4.Image")));
 			this->pb_sticker4->Location = System::Drawing::Point(344, 16);
 			this->pb_sticker4->Name = L"pb_sticker4";
 			this->pb_sticker4->Size = System::Drawing::Size(78, 61);
@@ -383,6 +386,7 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 			// 
 			// pb_sticker3
 			// 
+			this->pb_sticker3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pb_sticker3.Image")));
 			this->pb_sticker3->Location = System::Drawing::Point(234, 16);
 			this->pb_sticker3->Name = L"pb_sticker3";
 			this->pb_sticker3->Size = System::Drawing::Size(78, 61);
@@ -391,6 +395,7 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 			// 
 			// pb_sticker2
 			// 
+			this->pb_sticker2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pb_sticker2.Image")));
 			this->pb_sticker2->Location = System::Drawing::Point(126, 16);
 			this->pb_sticker2->Name = L"pb_sticker2";
 			this->pb_sticker2->Size = System::Drawing::Size(78, 61);
@@ -399,6 +404,7 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 			// 
 			// pb_sticker1
 			// 
+			this->pb_sticker1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pb_sticker1.Image")));
 			this->pb_sticker1->Location = System::Drawing::Point(17, 16);
 			this->pb_sticker1->Name = L"pb_sticker1";
 			this->pb_sticker1->Size = System::Drawing::Size(78, 61);
@@ -408,9 +414,9 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 			// 
 			// tsm_ajustes
 			// 
-			this->tsm_ajustes->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			this->tsm_ajustes->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->cuentaToolStripMenuItem,
-					this->agregarToolStripMenuItem, this->acercaDeToolStripMenuItem, this->cerrarSesiónToolStripMenuItem
+					this->acercaDeToolStripMenuItem, this->cerrarSesiónToolStripMenuItem
 			});
 			this->tsm_ajustes->Name = L"tsm_ajustes";
 			this->tsm_ajustes->Size = System::Drawing::Size(70, 24);
@@ -430,7 +436,7 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 					this->historialDeChatsToolStripMenuItem
 			});
 			this->chatsToolStripMenuItem->Name = L"chatsToolStripMenuItem";
-			this->chatsToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->chatsToolStripMenuItem->Size = System::Drawing::Size(128, 26);
 			this->chatsToolStripMenuItem->Text = L"Chats";
 			// 
 			// ordenarAlfabéticamenteToolStripMenuItem
@@ -440,7 +446,7 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 					this->ordenarPorRecientesToolStripMenuItem
 			});
 			this->ordenarAlfabéticamenteToolStripMenuItem->Name = L"ordenarAlfabéticamenteToolStripMenuItem";
-			this->ordenarAlfabéticamenteToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->ordenarAlfabéticamenteToolStripMenuItem->Size = System::Drawing::Size(207, 26);
 			this->ordenarAlfabéticamenteToolStripMenuItem->Text = L"Orden";
 			this->ordenarAlfabéticamenteToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::ordenarAlfabéticamenteToolStripMenuItem_Click);
 			// 
@@ -460,15 +466,9 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 			// historialDeChatsToolStripMenuItem
 			// 
 			this->historialDeChatsToolStripMenuItem->Name = L"historialDeChatsToolStripMenuItem";
-			this->historialDeChatsToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->historialDeChatsToolStripMenuItem->Size = System::Drawing::Size(207, 26);
 			this->historialDeChatsToolStripMenuItem->Text = L"Historial de chats";
 			this->historialDeChatsToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::historialDeChatsToolStripMenuItem_Click);
-			// 
-			// agregarToolStripMenuItem
-			// 
-			this->agregarToolStripMenuItem->Name = L"agregarToolStripMenuItem";
-			this->agregarToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->agregarToolStripMenuItem->Text = L"Agregar";
 			// 
 			// acercaDeToolStripMenuItem
 			// 
@@ -480,8 +480,9 @@ private: System::Windows::Forms::ImageList^ imgL_avatar;
 			// créditosToolStripMenuItem
 			// 
 			this->créditosToolStripMenuItem->Name = L"créditosToolStripMenuItem";
-			this->créditosToolStripMenuItem->Size = System::Drawing::Size(147, 26);
+			this->créditosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->créditosToolStripMenuItem->Text = L"Créditos";
+			this->créditosToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::créditosToolStripMenuItem_Click);
 			// 
 			// cerrarSesiónToolStripMenuItem
 			// 
@@ -800,6 +801,9 @@ private: System::Void lb_mensajes_SelectedIndexChanged(System::Object^ sender, S
 			MessageBox::Show(gcnew System::String(ex.what()), "Error");
 		}
 	}
+}
+private: System::Void créditosToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+
 }
 };
 }

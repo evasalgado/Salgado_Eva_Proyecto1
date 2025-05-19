@@ -14,7 +14,7 @@ using namespace std;
  public: 
 	 Contacto();
 	 Contacto(string nombre_user, string nombre, string correo,
-		 string contraseña, string preguntas, string edad, string imagen)
+		 string contraseña, string preguntas, string respuestas, string edad, string imagen)
 		 : nombre_user(nombre_user), nombre(nombre), correo(correo),
 		 contraseña(contraseña), preguntas(preguntas), respuestas(respuestas), edad(edad), image(imagen) {}
 	 string getNombre_User() const;

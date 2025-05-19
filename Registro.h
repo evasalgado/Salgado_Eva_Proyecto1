@@ -60,6 +60,11 @@ namespace Salgado_Eva_Proyecto1 {
 
 	private: System::Windows::Forms::TextBox^ tb_usuario;
 	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::TextBox^ tb_question;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::TextBox^ tb_respuesta;
+
 
 	private:
 		/// <summary>
@@ -91,17 +96,22 @@ namespace Salgado_Eva_Proyecto1 {
 			this->bt_registrar = (gcnew System::Windows::Forms::Button());
 			this->tb_usuario = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->tb_question = (gcnew System::Windows::Forms::TextBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->tb_respuesta = (gcnew System::Windows::Forms::TextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pB_avatar))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// pB_avatar
 			// 
 			this->pB_avatar->BackColor = System::Drawing::SystemColors::Info;
-			this->pB_avatar->Location = System::Drawing::Point(428, 512);
+			this->pB_avatar->Location = System::Drawing::Point(139, 573);
 			this->pB_avatar->Name = L"pB_avatar";
 			this->pB_avatar->Size = System::Drawing::Size(100, 99);
 			this->pB_avatar->TabIndex = 60;
 			this->pB_avatar->TabStop = false;
+			this->pB_avatar->Click += gcnew System::EventHandler(this, &Registro::pB_avatar_Click);
 			// 
 			// label14
 			// 
@@ -109,7 +119,7 @@ namespace Salgado_Eva_Proyecto1 {
 			this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label14->ForeColor = System::Drawing::SystemColors::Desktop;
-			this->label14->Location = System::Drawing::Point(424, 486);
+			this->label14->Location = System::Drawing::Point(135, 529);
 			this->label14->Name = L"label14";
 			this->label14->Size = System::Drawing::Size(62, 22);
 			this->label14->TabIndex = 59;
@@ -235,7 +245,7 @@ namespace Salgado_Eva_Proyecto1 {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(200, 595);
+			this->label8->Location = System::Drawing::Point(188, 737);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(215, 16);
 			this->label8->TabIndex = 47;
@@ -244,7 +254,7 @@ namespace Salgado_Eva_Proyecto1 {
 			// 
 			// bt_registrar
 			// 
-			this->bt_registrar->Location = System::Drawing::Point(228, 614);
+			this->bt_registrar->Location = System::Drawing::Point(208, 756);
 			this->bt_registrar->Name = L"bt_registrar";
 			this->bt_registrar->Size = System::Drawing::Size(175, 48);
 			this->bt_registrar->TabIndex = 46;
@@ -268,12 +278,54 @@ namespace Salgado_Eva_Proyecto1 {
 				static_cast<System::Byte>(0)));
 			this->label9->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(39)), static_cast<System::Int32>(static_cast<System::Byte>(105)),
 				static_cast<System::Int32>(static_cast<System::Byte>(103)));
-			this->label9->Location = System::Drawing::Point(199, 11);
+			this->label9->Location = System::Drawing::Point(199, -5);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(216, 53);
 			this->label9->TabIndex = 44;
 			this->label9->Text = L"Regístrate";
 			this->label9->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::SystemColors::Desktop;
+			this->label1->Location = System::Drawing::Point(248, 529);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(200, 22);
+			this->label1->TabIndex = 62;
+			this->label1->Text = L"Pregunta de Seguridad:";
+			// 
+			// tb_question
+			// 
+			this->tb_question->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tb_question->Location = System::Drawing::Point(252, 558);
+			this->tb_question->Name = L"tb_question";
+			this->tb_question->Size = System::Drawing::Size(191, 41);
+			this->tb_question->TabIndex = 61;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::SystemColors::Desktop;
+			this->label2->Location = System::Drawing::Point(248, 613);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(213, 22);
+			this->label2->TabIndex = 64;
+			this->label2->Text = L"Respuesta de Seguridad:";
+			// 
+			// tb_respuesta
+			// 
+			this->tb_respuesta->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tb_respuesta->Location = System::Drawing::Point(252, 642);
+			this->tb_respuesta->Name = L"tb_respuesta";
+			this->tb_respuesta->Size = System::Drawing::Size(191, 41);
+			this->tb_respuesta->TabIndex = 63;
 			// 
 			// Registro
 			// 
@@ -281,7 +333,11 @@ namespace Salgado_Eva_Proyecto1 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(181)), static_cast<System::Int32>(static_cast<System::Byte>(225)),
 				static_cast<System::Int32>(static_cast<System::Byte>(221)));
-			this->ClientSize = System::Drawing::Size(632, 692);
+			this->ClientSize = System::Drawing::Size(659, 816);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->tb_respuesta);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->tb_question);
 			this->Controls->Add(this->pB_avatar);
 			this->Controls->Add(this->label14);
 			this->Controls->Add(this->label13);
@@ -350,11 +406,12 @@ private: System::Void bt_registro_Click(System::Object^ sender, System::EventArg
 		correo = sacarTexto(tb_correo),
 		contraseña = sacarTexto(ps_contraseña),
 		confirmar = sacarTexto(ps_confirmar),
-		preguntas = "¿?",
+		preguntas = sacarTexto(tb_question),
+		respuestas = sacarTexto(tb_respuesta),
 		fecha = sacarFecha(dtp_fecha),
 		imagen=sacarAvatar(pB_avatar);
 	;
-	Contacto c(usuario, nombre, correo, contraseña, preguntas, fecha, imagen);
+	Contacto c(usuario, nombre, correo, contraseña, preguntas, respuestas, fecha, imagen);
 	if (confirmar==contraseña){
 		c.GuardarDatos(newUsuario);
 		MessageBox::Show("guardado existosamente");
@@ -364,6 +421,21 @@ private: System::Void bt_registro_Click(System::Object^ sender, System::EventArg
 	
 }
 
+private: System::Void pB_avatar_Click(System::Object^ sender, System::EventArgs^ e) {
+	OpenFileDialog^ openFileDialog = gcnew OpenFileDialog();
+	openFileDialog->Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+	openFileDialog->Title = "Selecciona una imagen de avatar";
+
+	if (openFileDialog->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+		try {
+			System::String^ ruta = openFileDialog->FileName;
+			pB_avatar->Image = Image::FromFile(ruta);
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show("Error al cargar la imagen: " + ex->Message);
+		}
+	}
+}
 };
 
 

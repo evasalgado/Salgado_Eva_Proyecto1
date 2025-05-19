@@ -59,6 +59,9 @@
     <ClInclude Include="mensajes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Creditos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CppCLR_WinFormsProject.cpp">
@@ -86,6 +89,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mensajes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Creditos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
