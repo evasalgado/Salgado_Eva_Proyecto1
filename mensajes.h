@@ -1,12 +1,11 @@
 #pragma once
 #include "Contacto.h"
+#include <vector>
 class mensajes{
-	string mensaje;
-	Contacto userA, userB;
+	vector<string> msm;
+	int tamanio;
 public: 
-	mensajes(string mensaje, Contacto userA, Contacto userB) :
-		mensaje(mensaje), userA(userA), userB(userB) {
-	}
+	mensajes()  {}
 	void CargarMensajes(fstream& archivo);
 	void GuardarMensajes(fstream& archivo);
 };

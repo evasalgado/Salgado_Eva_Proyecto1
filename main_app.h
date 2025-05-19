@@ -73,6 +73,10 @@ namespace Salgado_Eva_Proyecto1 {
 	private: System::Windows::Forms::Button^ bt_sticker;
 
 	private: System::Windows::Forms::Button^ bt_multimedia;
+	private: System::Windows::Forms::ToolStripMenuItem^ chatsToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ordenarAlfabéticamenteToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ historialDeChatsToolStripMenuItem;
+
 
 
 
@@ -96,18 +100,21 @@ namespace Salgado_Eva_Proyecto1 {
 			this->lb_closed = (gcnew System::Windows::Forms::ListBox());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ajustesToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->cuentaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->editarPerfilToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->cerrarSesiónToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->chatsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ordenarAlfabéticamenteToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->acercaDeToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->créditosToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->cerrarSesiónToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->bt_sticker = (gcnew System::Windows::Forms::Button());
+			this->bt_multimedia = (gcnew System::Windows::Forms::Button());
 			this->bt_enviar = (gcnew System::Windows::Forms::Button());
 			this->tb_mensaje = (gcnew System::Windows::Forms::TextBox());
 			this->lb_mensajes = (gcnew System::Windows::Forms::ListBox());
-			this->agregarToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->bt_multimedia = (gcnew System::Windows::Forms::Button());
-			this->bt_sticker = (gcnew System::Windows::Forms::Button());
+			this->historialDeChatsToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->tb_chats->SuspendLayout();
 			this->tb_open->SuspendLayout();
 			this->tb_Closed->SuspendLayout();
@@ -200,12 +207,21 @@ namespace Salgado_Eva_Proyecto1 {
 					this->cuentaToolStripMenuItem, this->acercaDeToolStripMenuItem, this->cerrarSesiónToolStripMenuItem
 			});
 			this->ajustesToolStripMenuItem->Name = L"ajustesToolStripMenuItem";
-			this->ajustesToolStripMenuItem->Size = System::Drawing::Size(70, 26);
+			this->ajustesToolStripMenuItem->Size = System::Drawing::Size(70, 24);
 			this->ajustesToolStripMenuItem->Text = L"Ajustes";
+			// 
+			// agregarToolStripMenuItem
+			// 
+			this->agregarToolStripMenuItem->Name = L"agregarToolStripMenuItem";
+			this->agregarToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->agregarToolStripMenuItem->Text = L"Agregar";
 			// 
 			// cuentaToolStripMenuItem
 			// 
-			this->cuentaToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->editarPerfilToolStripMenuItem });
+			this->cuentaToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->editarPerfilToolStripMenuItem,
+					this->chatsToolStripMenuItem
+			});
 			this->cuentaToolStripMenuItem->Name = L"cuentaToolStripMenuItem";
 			this->cuentaToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->cuentaToolStripMenuItem->Text = L"Cuenta";
@@ -213,15 +229,24 @@ namespace Salgado_Eva_Proyecto1 {
 			// editarPerfilToolStripMenuItem
 			// 
 			this->editarPerfilToolStripMenuItem->Name = L"editarPerfilToolStripMenuItem";
-			this->editarPerfilToolStripMenuItem->Size = System::Drawing::Size(170, 26);
+			this->editarPerfilToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->editarPerfilToolStripMenuItem->Text = L"Editar perfil";
 			// 
-			// cerrarSesiónToolStripMenuItem
+			// chatsToolStripMenuItem
 			// 
-			this->cerrarSesiónToolStripMenuItem->Name = L"cerrarSesiónToolStripMenuItem";
-			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->cerrarSesiónToolStripMenuItem->Text = L"Cerrar Sesión";
-			this->cerrarSesiónToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::cerrarSesiónToolStripMenuItem_Click);
+			this->chatsToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->ordenarAlfabéticamenteToolStripMenuItem,
+					this->historialDeChatsToolStripMenuItem
+			});
+			this->chatsToolStripMenuItem->Name = L"chatsToolStripMenuItem";
+			this->chatsToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->chatsToolStripMenuItem->Text = L"Chats";
+			// 
+			// ordenarAlfabéticamenteToolStripMenuItem
+			// 
+			this->ordenarAlfabéticamenteToolStripMenuItem->Name = L"ordenarAlfabéticamenteToolStripMenuItem";
+			this->ordenarAlfabéticamenteToolStripMenuItem->Size = System::Drawing::Size(260, 26);
+			this->ordenarAlfabéticamenteToolStripMenuItem->Text = L"Ordenar Alfabéticamente";
 			// 
 			// acercaDeToolStripMenuItem
 			// 
@@ -233,8 +258,15 @@ namespace Salgado_Eva_Proyecto1 {
 			// créditosToolStripMenuItem
 			// 
 			this->créditosToolStripMenuItem->Name = L"créditosToolStripMenuItem";
-			this->créditosToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->créditosToolStripMenuItem->Size = System::Drawing::Size(147, 26);
 			this->créditosToolStripMenuItem->Text = L"Créditos";
+			// 
+			// cerrarSesiónToolStripMenuItem
+			// 
+			this->cerrarSesiónToolStripMenuItem->Name = L"cerrarSesiónToolStripMenuItem";
+			this->cerrarSesiónToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->cerrarSesiónToolStripMenuItem->Text = L"Cerrar Sesión";
+			this->cerrarSesiónToolStripMenuItem->Click += gcnew System::EventHandler(this, &main_app::cerrarSesiónToolStripMenuItem_Click);
 			// 
 			// panel1
 			// 
@@ -250,6 +282,24 @@ namespace Salgado_Eva_Proyecto1 {
 			this->panel1->Size = System::Drawing::Size(678, 569);
 			this->panel1->TabIndex = 9;
 			// 
+			// bt_sticker
+			// 
+			this->bt_sticker->Location = System::Drawing::Point(69, 500);
+			this->bt_sticker->Name = L"bt_sticker";
+			this->bt_sticker->Size = System::Drawing::Size(59, 49);
+			this->bt_sticker->TabIndex = 15;
+			this->bt_sticker->Text = L"stickers";
+			this->bt_sticker->UseVisualStyleBackColor = true;
+			// 
+			// bt_multimedia
+			// 
+			this->bt_multimedia->Location = System::Drawing::Point(4, 500);
+			this->bt_multimedia->Name = L"bt_multimedia";
+			this->bt_multimedia->Size = System::Drawing::Size(59, 49);
+			this->bt_multimedia->TabIndex = 14;
+			this->bt_multimedia->Text = L"Multimedia";
+			this->bt_multimedia->UseVisualStyleBackColor = true;
+			// 
 			// bt_enviar
 			// 
 			this->bt_enviar->BackColor = System::Drawing::Color::Cornsilk;
@@ -262,6 +312,7 @@ namespace Salgado_Eva_Proyecto1 {
 			this->bt_enviar->TabIndex = 13;
 			this->bt_enviar->Text = L">";
 			this->bt_enviar->UseVisualStyleBackColor = false;
+			this->bt_enviar->Click += gcnew System::EventHandler(this, &main_app::bt_enviar_Click);
 			// 
 			// tb_mensaje
 			// 
@@ -282,34 +333,16 @@ namespace Salgado_Eva_Proyecto1 {
 				static_cast<System::Byte>(0)));
 			this->lb_mensajes->FormattingEnabled = true;
 			this->lb_mensajes->ItemHeight = 36;
-			this->lb_mensajes->Location = System::Drawing::Point(0, 3);
+			this->lb_mensajes->Location = System::Drawing::Point(4, 36);
 			this->lb_mensajes->Name = L"lb_mensajes";
-			this->lb_mensajes->Size = System::Drawing::Size(678, 436);
+			this->lb_mensajes->Size = System::Drawing::Size(678, 400);
 			this->lb_mensajes->TabIndex = 10;
 			// 
-			// agregarToolStripMenuItem
+			// historialDeChatsToolStripMenuItem
 			// 
-			this->agregarToolStripMenuItem->Name = L"agregarToolStripMenuItem";
-			this->agregarToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->agregarToolStripMenuItem->Text = L"Agregar";
-			// 
-			// bt_multimedia
-			// 
-			this->bt_multimedia->Location = System::Drawing::Point(4, 500);
-			this->bt_multimedia->Name = L"bt_multimedia";
-			this->bt_multimedia->Size = System::Drawing::Size(59, 49);
-			this->bt_multimedia->TabIndex = 14;
-			this->bt_multimedia->Text = L"Multimedia";
-			this->bt_multimedia->UseVisualStyleBackColor = true;
-			// 
-			// bt_sticker
-			// 
-			this->bt_sticker->Location = System::Drawing::Point(69, 500);
-			this->bt_sticker->Name = L"bt_sticker";
-			this->bt_sticker->Size = System::Drawing::Size(59, 49);
-			this->bt_sticker->TabIndex = 15;
-			this->bt_sticker->Text = L"stickers";
-			this->bt_sticker->UseVisualStyleBackColor = true;
+			this->historialDeChatsToolStripMenuItem->Name = L"historialDeChatsToolStripMenuItem";
+			this->historialDeChatsToolStripMenuItem->Size = System::Drawing::Size(260, 26);
+			this->historialDeChatsToolStripMenuItem->Text = L"Historial de chats";
 			// 
 			// main_app
 			// 
@@ -338,6 +371,15 @@ namespace Salgado_Eva_Proyecto1 {
 
 		}
 #pragma endregion
+		string volverString(System::String^ convertir) {
+			if (convertir == nullptr)
+				return string();
+			const wchar_t* wchars =
+				(const wchar_t*)(System::Runtime::InteropServices::Marshal::StringToHGlobalUni(convertir)).ToPointer();
+			wstring ws(wchars);
+			System::Runtime::InteropServices::Marshal::FreeHGlobal(System::IntPtr((void*)wchars));        std::string str(ws.begin(), ws.end());
+			return str;
+		}
 private: System::Void main_app_Load(System::Object^ sender, System::EventArgs^ e) {
 
 }
@@ -353,8 +395,31 @@ private: System::Void listBox1_SelectedIndexChanged(System::Object^ sender, Syst
 	tb_mensaje->Text = lb_open->Text+": ";
 }
 private: System::Void lb_closed_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	System::String^ usuario;
-	tb_mensaje->Text = lb_open->SelectedItem->ToString();
+	std::fstream archivo("contactos.amp", std::ios::in);
+	if (!archivo.is_open()) {
+		MessageBox::Show("No se puede abrir archivo");
+		return;
+	}
+	std::string linea;
+	if (std::getline(archivo, linea)) {
+		System::String^ user = gcnew System::String(linea.c_str());
+		tb_mensaje->Text=user+": "; 
+	}
+}
+private: System::Void bt_enviar_Click(System::Object^ sender, System::EventArgs^ e) {
+	fstream archivo("contactos.amp", ios::in);
+	System::String^ user2 = lb_open->SelectedItem->ToString();
+	System::String^ user1 = archivo //se supone ser el usuario que inició sesión en el programa
+	string mensaje = sacarTexto(textBox1);
+	System::String^ displayText = textBox1->Text;
+	listBox1->Items->Add(displayText);
+	textBox1->Text = " ";
+	
+	System::String^ fileName = user1 + user2 + ".msm";
+	string nuevoFile = volverString(user1 + user2 + ".msm");
+	std::fstream historial(nuevoFile, std::ios::in | std::ios::out | std::ios::app);
+	mensajes msm;
+	msm.guardarHistorial(historial);
 }
 };
 }
